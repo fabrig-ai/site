@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fabrig: the agent-based software factory</title>
+<meta name="description" content="A reliable, scalable and flexible agent-based software factory. Mechanics are code, judgement is an LLM's.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23f0763c' d='M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z'/%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/ibm-plex-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* temper's look, in the dark: ink on paper turned over, prose first, one
+   signal colour. Here the signal marks judgement and what needs a person. */
+@font-face { font-family: 'IBM Plex Sans'; font-weight: 400; font-display: swap; src: url(../fonts/ibm-plex-sans-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'IBM Plex Sans'; font-weight: 500; font-display: swap; src: url(../fonts/ibm-plex-sans-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 400; font-display: swap; src: url(../fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 500; font-display: swap; src: url(../fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2'); }
+:root {
+  --paper: #111113;
+  --surface: #19191c;
+  --ink: #f1f1ee;
+  --ink-2: #c9c9c6;
+  --muted: #a0a0a6;
+  --faint: #8b8b93;
+  --line: #27272b;
+  --line-2: #3b3b41;
+  --signal: #f0763c;
+  --good: #5cc98a;
+  --sans: 'IBM Plex Sans', 'Noto Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--ink); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+h1, h2, h3, p, ol, ul, dl, dd { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+.star { width: 1em; height: 1em; fill: var(--signal); flex: none; }
+.page { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+.mono { font-family: var(--mono); }
+.label { font-family: var(--mono); font-size: 12.5px; color: var(--faint); }
+.title { font-size: 13px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
+/* The top. */
+.top { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 17px; text-decoration: none; }
+.brand .star { width: 14px; height: 14px; }
+.top nav { display: flex; gap: 24px; font-size: 14.5px; color: var(--muted); }
+.top nav a { text-decoration: none; }
+.top nav a:hover { color: var(--ink); }
+
+/* The first screen. */
+.hero { padding: 72px 0 80px; }
+h1 { font-size: clamp(38px, 6.4vw, 66px); line-height: 1.08; font-weight: 500; letter-spacing: -.03em; }
+h1 em { font-style: normal; color: var(--signal); white-space: nowrap; }
+.lede { margin-top: 28px; max-width: 660px; font-size: clamp(17px, 2vw, 20px); line-height: 1.55; color: var(--ink-2); }
+
+.term { margin-top: 44px; max-width: 760px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--surface); font-family: var(--mono); }
+.term-head { display: flex; justify-content: space-between; gap: 16px; padding: 11px 20px; border-bottom: 1px solid var(--line); font-size: 12.5px; color: var(--faint); }
+.term-line { display: flex; align-items: flex-start; gap: 12px; padding: 20px 20px 6px; font-size: clamp(14px, 1.9vw, 18px); line-height: 1.5; }
+.term-line .prompt { color: var(--good); user-select: none; }
+.term-line code { flex: 1; font: inherit; min-width: 0; }
+.term-line code::after { content: ''; display: inline-block; width: .55em; height: 1.05em; margin-left: .35em; vertical-align: -.16em; background: var(--ink-2); animation: blink 1.2s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.copy { flex: none; padding: 3px 11px; border: 1px solid var(--line-2); border-radius: 6px; background: none; color: var(--muted); font: 12.5px/1.6 var(--mono); cursor: pointer; }
+.copy:hover { color: var(--ink); border-color: var(--faint); }
+.term-note { padding: 0 20px 18px; font-size: 13px; line-height: 1.6; color: var(--faint); }
+
+/* Sections. */
+.block { padding: 64px 0; border-top: 1px solid var(--line); }
+.block > .title { margin-bottom: 28px; }
+h2 { font-size: clamp(26px, 3.6vw, 36px); line-height: 1.22; font-weight: 500; letter-spacing: -.02em; }
+.side { margin-top: 16px; max-width: 660px; color: var(--muted); }
+
+/* One change's way through. */
+.legend { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-bottom: 36px; font-size: 14.5px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 9px; }
+.tick { width: 9px; height: 9px; border-radius: 2px; background: var(--faint); flex: none; }
+.way { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); }
+.way::before { content: ''; position: absolute; left: 0; right: 0; top: 10px; height: 1px; background: linear-gradient(90deg, var(--line-2) 40%, var(--signal) 50%, var(--line-2) 60%) 0 0 / 300% 100%; animation: flow 7s linear infinite; }
+@keyframes flow { from { background-position: 150% 0; } to { background-position: -50% 0; } }
+.way li { position: relative; display: flex; flex-direction: column; gap: 10px; padding-right: 10px; }
+.mark { display: flex; align-items: center; height: 21px; }
+.mark span { padding-right: 7px; background: var(--paper); display: flex; }
+.way .star { width: 21px; height: 21px; }
+.way b { font: 500 15px/1.3 var(--sans); }
+.way small { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 5px; font: 12.5px/1.45 var(--mono); color: var(--faint); }
+.way small .star { width: 11px; height: 11px; }
+.way small span { display: flex; flex-basis: 100%; align-items: center; gap: 5px; }
+.way small i { font-style: normal; color: var(--ink-2); }
+.rules { margin-top: 44px; max-width: 700px; font-size: clamp(18px, 2.2vw, 21px); line-height: 1.5; color: var(--ink-2); }
+.rules strong { font-weight: 500; color: var(--ink); }
+
+/* The proof. */
+.stamp { display: flex; align-items: center; gap: 9px; margin-bottom: 18px; }
+.stamp i { width: 7px; height: 7px; border-radius: 50%; background: var(--good); }
+h2 .need { color: var(--signal); }
+.stats { display: grid; grid-template-columns: repeat(3, auto) 1fr; gap: 12px 44px; margin-top: 32px; }
+.stats dd { font: 500 22px/1.2 var(--mono); }
+.stats dt { margin-top: 3px; font-size: 13.5px; color: var(--muted); }
+.stats div:last-child { justify-self: end; align-self: end; font-size: 14.5px; }
+
+/* Write, prove, run. */
+.plane { display: grid; grid-template-columns: 150px 1fr auto; gap: 6px 24px; align-items: baseline; padding: 20px 0; border-top: 1px solid var(--line); }
+.plane:last-child { border-bottom: 1px solid var(--line); }
+.plane h3 { font-size: clamp(24px, 3vw, 30px); line-height: 1.2; font-weight: 500; letter-spacing: -.02em; }
+.plane p { color: var(--ink-2); }
+.plane p b { font-weight: 500; color: var(--ink); }
+.plane .label.now { color: var(--good); }
+.after { margin-top: 20px; color: var(--muted); }
+
+/* What holds it up. */
+.three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.three h3 { margin-bottom: 22px; font-size: 24px; line-height: 1.2; font-weight: 500; letter-spacing: -.015em; }
+.three li + li { margin-top: 20px; }
+.three b { display: block; font-weight: 500; line-height: 1.4; margin-bottom: 4px; }
+.three p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 32px 0 48px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--faint); }
+.foot nav { display: flex; gap: 20px; }
+
+@media (max-width: 760px) {
+  .page { padding: 0 16px; }
+  .top { padding: 20px 0; }
+  .hero { padding: 36px 0 56px; }
+  .term-head, .term-line, .term-note { padding-left: 14px; padding-right: 14px; }
+  .term-line { flex-wrap: wrap; padding-top: 16px; }
+  .term-line code { flex-basis: calc(100% - 28px); overflow-wrap: anywhere; }
+  .copy { order: 3; margin-left: auto; }
+  .block { padding: 48px 0; }
+  .way { grid-template-columns: 1fr; }
+  .way::before { left: 10px; right: auto; top: 0; bottom: 0; width: 1px; height: auto; background: var(--line-2); animation: none; }
+  .way li { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 2px 14px; padding: 9px 0; }
+  .way li small { flex-basis: 100%; padding-left: 35px; }
+  .way small span { flex-basis: auto; }
+  .mark span { padding: 4px 0; }
+  .mark { width: 21px; justify-content: center; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .stats div:last-child { grid-column: 1 / -1; justify-self: start; }
+  .plane { grid-template-columns: 1fr auto; }
+  .plane p { grid-column: 1 / -1; grid-row: 2; }
+  .three { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .term-line code::after, .way::before { animation: none; }
+  .way::before { background: var(--line-2); }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="star" viewBox="0 0 24 24"><path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z"/></symbol></svg>
+
+<div class="page">
+  <header class="top">
+    <a class="brand" href="./"><svg class="star" aria-hidden="true"><use href="#star"/></svg>fabrig</a>
+    <nav aria-label="Elsewhere">
+      <a href="https://status.fabrig.ai/">Status</a>
+      <a href="https://github.com/fabrig-ai/fabrig">Source</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Mechanics are code.<br>Judgement is <em>an LLM’s.</em></h1>
+      <p class="lede">fabrig is a reliable, scalable and flexible agent-based software factory. Agents write, repair and review the changes. Deterministic code queues, gates and lands them.</p>
+
+      <div class="term" role="group" aria-label="Install command">
+        <div class="term-head"><span>Try temper on your machine</span><span>Linux · macOS</span></div>
+        <div class="term-line">
+          <span class="prompt" aria-hidden="true">$</span>
+          <code id="cmd">curl -fsSL https://fabrig.ai/releases/box.sh | sh</code>
+          <button class="copy" type="button" data-copy="#cmd">Copy</button>
+        </div>
+        <p class="term-note"># one binary: downloads temper and starts temper box, forge included<br># arrives with v0.1.0</p>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="split">
+      <h2 class="title" id="split">One change, start to finish</h2>
+      <div class="legend">
+        <span><svg class="star" aria-hidden="true"><use href="#star"/></svg>An LLM, woken for judgement</span>
+        <span><i class="tick"></i>Code, every time</span>
+      </div>
+      <ol class="way">
+        <li><div class="mark"><span><svg class="star" aria-hidden="true"><use href="#star"/></svg></span></div><b>Produce</b></li>
+        <li><div class="mark"><span><svg class="star" aria-hidden="true"><use href="#star"/></svg></span></div><b>Review</b></li>
+        <li><div class="mark"><span><i class="tick"></i></span></div><b>Queue</b></li>
+        <li><div class="mark"><span><i class="tick"></i></span></div><b>Update</b><small>on conflict <span><svg class="star" aria-hidden="true"><use href="#star"/></svg><i>resolve</i></span></small></li>
+        <li><div class="mark"><span><i class="tick"></i></span></div><b>Gate</b><small>on red <span><svg class="star" aria-hidden="true"><use href="#star"/></svg><i>repair</i></span></small></li>
+        <li><div class="mark"><span><i class="tick"></i></span></div><b>Merge</b><small>the exact commit</small></li>
+        <li><div class="mark"><span><i class="tick"></i></span></div><b>Verify</b><small>blame assigned</small></li>
+      </ol>
+      <p class="rules"><strong>Agents never get a merge or update tool.</strong> Authority enforces the split, and landing rules are checked at the merge.</p>
+    </section>
+
+    <section class="block" aria-labelledby="proof">
+      <p class="stamp label"><i></i>fabrig’s own development · last 24 hours · 5 Nov, 14:52 UTC</p>
+      <h2 id="proof">344 changes landed on main.<br><span class="need">One thing needs a person.</span></h2>
+      <p class="side">fabrig is built on fab, temper’s prototype, on the same principles. Next: temper building temper, live on dev.fabrig.ai.</p>
+      <dl class="stats">
+        <div><dd>1,098</dd><dt>agent runs completed</dt></div>
+        <div><dd>1,029</dd><dt>merges into trunks</dt></div>
+        <div><dd>219</dd><dt>refused by the queue</dt></div>
+        <div><a href="https://status.fabrig.ai/">See the live numbers</a></div>
+      </dl>
+    </section>
+
+    <section class="block" aria-labelledby="planes">
+      <h2 class="title" id="planes">Write, prove, run</h2>
+      <ul>
+        <li class="plane"><h3>Write</h3><p><b>temper.</b> Where people direct the development of software, and agents do it.</p><span class="label now">first release coming</span></li>
+        <li class="plane"><h3>Prove</h3><p><b>A lab.</b> Automated QA for what was written.</p><span class="label">direction</span></li>
+        <li class="plane"><h3>Run</h3><p><b>Ops.</b> Automated deployment and operations. hearth, its first piece, makes immutable machines.</p><span class="label">direction</span></li>
+      </ul>
+      <p class="after">One engine under all three: jig, a kit for agentic applications.</p>
+    </section>
+
+    <section class="block" aria-label="Reliable, scalable, flexible">
+      <div class="three">
+        <div>
+          <h3>Reliable</h3>
+          <ul>
+            <li><b>Effects are made once.</b><p>Each kind of write has a recovery class. An uncertain one waits for a person, not a guess.</p></li>
+            <li><b>Merging is pinned to an exact commit.</b><p>The head its decision saw, and no other.</p></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Scalable</h3>
+          <ul>
+            <li><b>Scales out with workers.</b><p>Workers dial one engine. High availability is planned on skein-kv, a replicated single-writer store.</p></li>
+            <li><b>The target: landed in minutes.</b><p>A ready branch lands on its first attempt, within minutes.</p></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Flexible</h3>
+          <ul>
+            <li><b>Your process is configuration.</b><p>Templates, charters and landing rules are settings, on jig’s model of tasks and delegation.</p></li>
+            <li><b>Delegated authority only narrows.</b><p>Budgets are carved from the parent’s.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>fabrig · MIT</span>
+    <nav aria-label="Footer">
+      <a href="https://status.fabrig.ai/">Status</a>
+      <a href="https://github.com/fabrig-ai/fabrig">Source</a>
+    </nav>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (button) {
+  button.addEventListener('click', function () {
+    var text = document.querySelector(button.dataset.copy).textContent;
+    navigator.clipboard.writeText(text).then(function () {
+      button.textContent = 'Copied';
+      setTimeout(function () { button.textContent = 'Copy'; }, 1500);
+    });
+  });
+});
+</script>
+</body>
+</html>

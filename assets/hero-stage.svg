@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 645" width="1700" height="645" preserveAspectRatio="xMinYMin slice">
+  <defs>
+    <linearGradient id="arc-mid" gradientUnits="userSpaceOnUse" x1="500" y1="0" x2="1150" y2="0">
+      <stop offset="0" stop-color="#0a5cff" stop-opacity=".2"/><stop offset=".12" stop-color="#0a5cff" stop-opacity=".24"/>
+      <stop offset=".5" stop-color="#2c4cf0" stop-opacity=".13"/><stop offset=".82" stop-color="#a02cff" stop-opacity=".3"/><stop offset="1" stop-color="#8f28f2" stop-opacity=".17"/>
+    </linearGradient>
+    <linearGradient id="arc-out" gradientUnits="userSpaceOnUse" x1="455" y1="313" x2="720" y2="23">
+      <stop offset="0" stop-color="#0a70ff" stop-opacity="0"/><stop offset=".45" stop-color="#0a70ff" stop-opacity=".78"/><stop offset="1" stop-color="#0a70ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="arc-in" gradientUnits="userSpaceOnUse" x1="940" y1="0" x2="1085" y2="0">
+      <stop offset="0" stop-color="#7a3cf0" stop-opacity="0"/><stop offset="1" stop-color="#7a3cf0" stop-opacity=".05"/>
+    </linearGradient>
+    <linearGradient id="arc-fade" gradientUnits="userSpaceOnUse" x1="0" y1="333" x2="0" y2="483">
+      <stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="arcs-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1700" height="645"><rect width="1700" height="645" fill="url(#arc-fade)"/></mask>
+    <linearGradient id="grid-ink" gradientUnits="userSpaceOnUse" x1="240" y1="0" x2="1212" y2="0">
+      <stop offset="0" stop-color="#1f6bff"/><stop offset=".45" stop-color="#3f6cff"/><stop offset=".75" stop-color="#8a40ff"/><stop offset="1" stop-color="#8a3cf2"/>
+    </linearGradient>
+    <linearGradient id="grid-fade" gradientUnits="userSpaceOnUse" x1="431.8" y1="445.2" x2="481.2" y2="586.8">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".55" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="grid-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1700" height="645"><rect width="1700" height="645" fill="url(#grid-fade)"/></mask>
+    <radialGradient id="pool-0" gradientUnits="userSpaceOnUse" cx="620.5" cy="508" r="116.3" gradientTransform="matrix(1 0 0 1.3224 0 -163.8)">
+      <stop offset="0" stop-color="#00abff" stop-opacity="0.419"/><stop offset="0.52" stop-color="#00abff" stop-opacity="0.085"/><stop offset="1" stop-color="#00abff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pool-1" gradientUnits="userSpaceOnUse" cx="727.8" cy="529.1" r="427.6" gradientTransform="matrix(1 0 0 0.3167 0 361.55)">
+      <stop offset="0" stop-color="#001cff" stop-opacity="0.402"/><stop offset="0.272" stop-color="#001cff" stop-opacity="0.133"/><stop offset="1" stop-color="#001cff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pool-2" gradientUnits="userSpaceOnUse" cx="1074.1" cy="495.3" r="389.1" gradientTransform="matrix(1 0 0 0.1463 0 422.88)">
+      <stop offset="0" stop-color="#3c009b" stop-opacity="1"/><stop offset="0.347" stop-color="#3c009b" stop-opacity="0.234"/><stop offset="1" stop-color="#3c009b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pool-3" gradientUnits="userSpaceOnUse" cx="524.7" cy="497.7" r="295.7" gradientTransform="matrix(1 0 0 0.1803 0 407.98)">
+      <stop offset="0" stop-color="#0060ff" stop-opacity="0.511"/><stop offset="0.325" stop-color="#0060ff" stop-opacity="0.169"/><stop offset="1" stop-color="#0060ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="horizon" gradientUnits="userSpaceOnUse" x1="240" y1="0" x2="1212" y2="0">
+      <stop offset="0" stop-color="#1a6dff" stop-opacity="0"/><stop offset=".2" stop-color="#1580ff" stop-opacity=".25"/><stop offset=".32" stop-color="#10a0ff" stop-opacity=".55"/><stop offset=".6" stop-color="#5a5cff" stop-opacity=".5"/><stop offset=".83" stop-color="#9a18ff" stop-opacity=".45"/><stop offset="1" stop-color="#9a18ff" stop-opacity=".25"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="1.4"/></filter>
+    <filter id="contact" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation=".7"/></filter>
+  </defs>
+
+  <!-- concentric rings behind the illustration -->
+  <g fill="none" stroke-width="1" mask="url(#arcs-mask)">
+    <path d="M454.2 371 A372.5 339.3 0 0 1 825.3 2.1" stroke="url(#arc-out)"/>
+    <path d="M512.3 351.4 A313.2 285.3 0 1 1 1138.3 351.4" stroke="url(#arc-mid)"/>
+    <path d="M954.8 137.1 A259 235.9 0 0 1 1084.1 349.6" stroke="url(#arc-in)"/>
+  </g>
+
+  <!-- light spilling onto the floor -->
+  <rect x="0" y="353" width="1700" height="292" fill="url(#pool-0)"/>
+  <rect x="0" y="353" width="1700" height="292" fill="url(#pool-1)"/>
+  <rect x="0" y="353" width="1700" height="292" fill="url(#pool-2)"/>
+  <rect x="0" y="353" width="1700" height="292" fill="url(#pool-3)"/>
+
+  <!-- glowing horizon line -->
+  <rect x="0" y="490.8" width="1700" height="3.5" fill="url(#horizon)" filter="url(#soft)"/>
+
+  <!-- contact shadow where the illustration meets the floor -->
+  <rect x="590" y="490.8" width="422" height="3.6" rx="1.8" fill="#00041e" fill-opacity=".75" filter="url(#contact)"/>
+
+  <!-- perspective floor grid -->
+  <g fill="none" stroke="url(#grid-ink)" stroke-width="1" mask="url(#grid-mask)">
+    <g opacity=".13">
+      <path d="M100 494.5 H1700"/>
+      <path d="M100 500.5 H1700"/>
+      <path d="M100 509.5 H1700"/>
+      <path d="M100 522.5 H1700"/>
+      <path d="M100 535.5 H1700"/>
+      <path d="M100 560.5 H1700"/>
+      <path d="M100 606.5 H1700"/>
+    </g>
+    <g opacity=".42">
+      <path d="M419.8 491 L-411.8 645"/>
+      <path d="M536.6 491 L-125.6 645"/>
+      <path d="M640 491 L196.4 645"/>
+      <path d="M723.1 491 L458.1 645"/>
+      <path d="M780.7 491 L655 645"/>
+      <path d="M843.9 491 L843.9 645"/>
+      <path d="M894 491 L1009.2 645"/>
+      <path d="M942 491 L1169.6 645"/>
+      <path d="M994.4 491 L1366.5 645"/>
+      <path d="M1050.7 491 L1634.4 645"/>
+      <path d="M1121.6 491 L1922.4 645"/>
+    </g>
+  </g>
+</svg>

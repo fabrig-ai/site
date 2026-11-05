@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Questions · fabrig</title>
+<meta name="description" content="The hard questions about fabrig, answered straight: proof, review, cost, scope, security and who&#x27;s behind it.">
+<meta property="og:title" content="Questions · fabrig">
+<meta property="og:description" content="The hard questions about fabrig, answered straight: proof, review, cost, scope, security and who&#x27;s behind it.">
+<meta name="theme-color" content="#01061b">
+<link rel="icon" href="/assets/fabrig-logo.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/InterDisplay-Bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="fabrig home">
+      <img class="brand__mark" src="/assets/fabrig-logo.svg" width="87" height="78" alt="">
+      <span class="brand__name">fabrig</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul class="primary-nav__list">
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/how-it-works/">How it works</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/configure/">Configure</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/questions/" aria-current="page">Questions</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/manifesto/">Manifesto</a></li>
+      </ul>
+    </nav>
+    <div class="site-header__actions">
+      <a class="icon-link" href="https://github.com/fabrig-ai/fabrig" aria-label="Source on GitHub"><img src="/assets/icons/github.svg" width="34" height="34" alt=""></a>
+      <a class="button button--primary button--small" href="/#start">Get started <img class="button__icon" src="/assets/icons/arrow-right-small.svg" width="14" height="12" alt=""></a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+<main class="doc prose" id="main">
+<p class="kicker">hard questions</p>
+<h1>The objections, answered straight.</h1>
+<p class="lede">What a careful reader should ask before trusting any of this.</p>
+
+<ul class="toc">
+  <li><a href="#today">Can I run it today?</a></li>
+  <li><a href="#proof">Aren’t the numbers just fabrig building fabrig?</a></li>
+  <li><a href="#bar">My repository is below the bar. Is this for me?</a></li>
+  <li><a href="#language">Does it need Rust, or your programming model?</a></li>
+  <li><a href="#review">Nobody can review this much agent-written code.</a></li>
+  <li><a href="#wrong">What if the configuring agent gets it wrong?</a></li>
+  <li><a href="#nih">Why build your own runtime, store and HTTP?</a></li>
+  <li><a href="#scope">Isn’t this five products?</a></li>
+  <li><a href="#cost">What does it cost, and why does it follow my LLM quota?</a></li>
+  <li><a href="#plans">Is my plan allowed to run this?</a></li>
+  <li><a href="#security">Has it had a security review?</a></li>
+  <li><a href="#who">Who’s behind it?</a></li>
+  <li><a href="#docs">Why are the design documents so hard to read?</a></li>
+  <li><a href="#stands">Where does it stand?</a></li>
+  <li><a href="#compare">How does it compare?</a></li>
+</ul>
+
+<h2 id="today">Can I run it today?</h2>
+<p>Yes. v0.1.0 is one binary for x86-64 Linux and Apple Silicon, and <code>temper box</code> runs a whole deployment on your machine with its own forge, or connects to GitHub. The playground needs no account. On Linux you need kernel 6.12 and glibc 2.39 or later, plus git and ripgrep.</p>
+<p>It is a first release, and it should be treated as one.</p>
+
+<h2 id="proof">Aren’t the numbers just fabrig building fabrig?</h2>
+<p>Yes. Every number on the home page comes from one project, built by fab, temper’s prototype. It’s a repository with deterministic simulation and strict gates, which is the best case for agents.</p>
+<p>So the numbers show what’s possible under that discipline. They don’t forecast what you’ll get. A second, unrelated project is planned, and its numbers will sit next to these.</p>
+
+<h2 id="bar">My repository is below the bar. Is this for me?</h2>
+<p>That’s your choice. Agents amplify what’s there: with flaky CI and loose design they drift, and slop accumulates faster than anyone can remove it. No harness fixes that, and fabrig doesn’t claim to.</p>
+<p>You have two honest options. Raise the bar first, or run with autonomy turned down: low throughput, a person approving each landing, a chat instead of a fleet. Both are settings, and you can <a href="/configure/#dial">turn the dial</a> as the repository earns it. The <a href="/manifesto/#discipline">manifesto</a> says where fabrig stands.</p>
+
+<h2 id="language">Does it need Rust, or your programming model?</h2>
+<p>No. fabrig’s strict Rust subset and deterministic simulation are fabrig’s choices for fabrig. temper adopts a repository as it is, runs your CI, and doesn’t mind what language it’s in. What should transfer is the practice, and those properties are achievable in many ways.</p>
+<p>Nothing in another language has been published yet, so for now that’s a claim rather than a result.</p>
+
+<h2 id="review">Nobody can review this much agent-written code.</h2>
+<p>Correct, and nobody tries. fabrig passed 2.5 million lines of Rust and 21,000 commits in its first five weeks. No person has read that, and outsiders can’t either.</p>
+<p>The bet is that reading doesn’t scale and proof does. People decide goals, designs and plans. The code gets about 30,000 tests, simulation where a seed replays a failure, gates, verification after landing, and a continuous tech-debt review by agents that files what it finds and squashes it.</p>
+<p>In fabrig’s own way of working, individual changes into a goal’s branch get no CI or review of their own. Quality rests on the tier following that branch, the full gate when the goal lands, and the slow tiers after it. You can choose differently, and <a href="/configure/#dial">the stock path does</a>.</p>
+<p>Trust should come from published outcomes rather than this page. Escape rates, and what the debt review finds over time, are on the way. More automated review, such as security, is too.</p>
+
+<h2 id="wrong">What if the configuring agent gets it wrong?</h2>
+<p>You reject the proposal, and it revises. It can’t change anything itself: an owner accepts every change, the review shows every value before and after, what’s enforced is kept apart from what’s only followed, and any revision can be restored. <a href="/configure/#trust">More on that</a>.</p>
+
+<h2 id="nih">Why build your own runtime, store and HTTP?</h2>
+<p>Because the economics changed. When agents write the code, a dependency’s remaining costs are fit, control and churn. You build what you need, exactly how you need it, and you keep control of it.</p>
+<p>There’s a limit. Cryptography stays on rustls and ring. Code whose value comes from adversarial testing carries real risk when it’s home-made, so the hand-written HTTP parser and the OAuth issuer are first in line for security review.</p>
+
+<h2 id="scope">Isn’t this five products?</h2>
+<p>It’s five trees in one repository, with dependencies pointing one way, and it’s a lot. One thing ships now: temper. Prove and Run are labelled as direction. The other trees exist because temper needs them, and a small second application keeps jig from turning into temper in disguise.</p>
+
+<h2 id="cost">What does it cost, and why does it follow my LLM quota?</h2>
+<p>fabrig is MIT. What you pay for is models. Hardware isn’t the constraint: machines can be provisioned to follow the work. Tokens are, so what matters is what each token buys.</p>
+<p>The first move is offloading everything that doesn’t need judgement to code. A merge, an update or a rerun costs no tokens. The second is a model per role: your strongest where judgement is dense, a faster one for producing, a cheaper one for read-only foremen.</p>
+<p>Budgets are carved from a project’s weekly spend down through every task. A task without enough is held rather than overdrawn, and spend is recorded per task, so you can see where it went. The number to watch is cost per landed change. fabrig’s own figure is still moving as its workflows are tuned, and it will be published next to time-to-land.</p>
+
+<h2 id="plans">Is my plan allowed to run this?</h2>
+<p>Check your provider’s terms against your volume. temper uses your own account, signed in the way each provider documents, and when an account hits a limit the work waits. It never moves to another account to get around one.</p>
+<p>Subscription limits generally assume ordinary, individual use, and providers change their terms. For sustained automated work, API keys are the safer footing, and temper takes those too.</p>
+
+<h2 id="security">Has it had a security review?</h2>
+<p>Not an independent audit. Parts of the design have been through security reviews run by agents, a box listens on loopback, and cryptography isn’t home-made.</p>
+<p>Continuous security review is planned, in the way tech debt is reviewed today: deterministic tools first, such as dependency audits and secret scans, then a model reading a goal’s whole diff where it lands.</p>
+
+<h2 id="who">Who’s behind it?</h2>
+<p>Today, one person and a fleet of agents. That’s a fair concern if you’re choosing what to build on.</p>
+<p>What limits the risk: it’s MIT, and the code, the design and the reasons behind each decision all live in the repository, written so that agents can carry the work forward. You’d keep a working binary, the source and a process that can maintain it. You wouldn’t keep a vendor.</p>
+
+<h2 id="docs">Why are the design documents so hard to read?</h2>
+<p>They’re a contract written for agents, with citations checked by code, and they aren’t meant as a way in. Start with <a href="/how-it-works/">How it works</a>, then ask temper itself: the <a href="/configure/#ask">configuring agent</a> answers from your settings and the documentation in the binary.</p>
+
+<h2 id="stands">Where does it stand?</h2>
+<h3>In v0.1.0</h3>
+<ul class="list">
+  <li><code>temper box</code>: a whole deployment on one machine, with a playground.</li>
+  <li>Forgejo and GitHub. ChatGPT and Claude.</li>
+  <li>Chats, goals, plans, questions and holds.</li>
+  <li>Landing with exact-commit merges, and verification after landing with blame.</li>
+  <li>The configuring agent, with settings, proposals, revisions and restore.</li>
+  <li>Budgets per project and per task.</li>
+</ul>
+<h3>Next</h3>
+<ul class="list">
+  <li>A second, unrelated project, with its numbers published beside fabrig’s.</li>
+  <li>Published cost per landed change, and escape rates.</li>
+  <li>temper building temper, live on dev.fabrig.ai.</li>
+  <li>Continuous security review.</li>
+</ul>
+<h3>Direction</h3>
+<ul class="list">
+  <li>Prove: a lab for automated QA, on the same engine.</li>
+  <li>Run: automated deployment and operations, starting from hearth.</li>
+  <li>High availability, on skein-kv.</li>
+  <li>Dashboards you describe, the way you describe your process.</li>
+</ul>
+
+<h2 id="compare">How does it compare?</h2>
+<p>By category, because this field moves monthly. In every row below the others have something fabrig doesn’t: years of use, and users. fabrig’s case is the design.</p>
+<div class="scroll"><table>
+  <thead><tr><th scope="col">If you use</th><th scope="col">It’s good at</th><th scope="col">fabrig adds</th></tr></thead>
+  <tbody>
+    <tr><td>A coding agent at a terminal</td><td>Immediate, flexible, one person at a time</td><td>Work that outlives processes and machines, many agents at once, rules no agent can loosen</td></tr>
+    <tr><td>Cloud agents that open pull requests</td><td>No setup, and a person reviews at the end</td><td>A path that doesn’t have to end in a person, with landing as procedure</td></tr>
+    <tr><td>Agent orchestrators</td><td>Many role-based agents, working today</td><td>Exact-commit landing, enforced authority, effects made once</td></tr>
+    <tr><td>Merge queues</td><td>Deterministic, established</td><td>Repair and conflict resolution inside the loop</td></tr>
+    <tr><td>Durable workflow engines</td><td>General, proven at scale</td><td>Recovery classes for effects, instead of leaving idempotency to you</td></tr>
+  </tbody>
+</table></div>
+<p>Almost nothing else configures its process from a description of how you work, and tells you what it can’t cover yet. That’s the place to start: <a href="/configure/">tell temper how you work</a>.</p>
+</main>
+</div>
+
+<div class="container">
+<footer>
+  <a class="brand brand--small" href="/"><img class="brand__mark" src="/assets/fabrig-logo.svg" width="87" height="78" alt=""><span class="brand__name">fabrig</span></a>
+  <div class="links">
+    <span>MIT</span>
+    <a href="https://github.com/fabrig-ai/fabrig">Source</a>
+    <a href="https://git.fabrig.ai/">Forge</a>
+    <a href="https://status.fabrig.ai/">Status</a>
+  </div>
+</footer>
+</div>
+</body>
+</html>

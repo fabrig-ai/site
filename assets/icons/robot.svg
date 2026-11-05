@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4.4 2.4 48.2 47.4" width="48.2" height="47.4" aria-hidden="true">
+  <defs>
+    <linearGradient id="robot-fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9338ff"/>
+      <stop offset="1" stop-color="#7a20f0"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#robot-fill)">
+    <circle cx="28" cy="7" r="4.5"/>
+    <rect x="25.8" y="9" width="4.5" height="7" rx="1"/>
+    <rect x="4.5" y="23.5" width="6.5" height="10" rx="2.5"/>
+    <rect x="45.9" y="23.5" width="6.6" height="10" rx="2.5"/>
+    <path fill-rule="evenodd" d="M18 14.6h20.5a10 10 0 0 1 10 10v8.4a10 10 0 0 1-10 10H18A10 10 0 0 1 8 33v-8.4a10 10 0 0 1 10-10Zm1.6 5.1a6 6 0 0 0-6 6v6.2a6 6 0 0 0 6 6h17.3a6 6 0 0 0 6-6v-6.2a6 6 0 0 0-6-6Z"/>
+    <rect x="18.5" y="24.6" width="5.6" height="8" rx="2.8"/>
+    <rect x="32.6" y="24.6" width="6.2" height="8" rx="3"/>
+    <rect x="5" y="44.6" width="28.6" height="5" rx="2.5"/>
+  </g>
+</svg>

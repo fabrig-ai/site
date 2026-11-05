@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 6 474 425" width="474" height="425">
+  <title>Fabrig</title>
+  <defs>
+    <linearGradient id="g-smoke" gradientUnits="userSpaceOnUse" x1="336.7" y1="18.2" x2="135.4" y2="116.4"><stop offset="0" stop-color="#9c01fc"/><stop offset="0.111" stop-color="#7513fd"/><stop offset="0.222" stop-color="#463efd"/><stop offset="0.333" stop-color="#1b76fd"/><stop offset="0.444" stop-color="#04a1fd"/><stop offset="0.556" stop-color="#00c4fe"/><stop offset="0.667" stop-color="#00e0fd"/><stop offset="0.778" stop-color="#00f5fe"/><stop offset="0.889" stop-color="#01f7fd"/><stop offset="1" stop-color="#03f8f9"/></linearGradient>
+    <linearGradient id="g-factory" gradientUnits="userSpaceOnUse" x1="26.1" y1="222.1" x2="424.9" y2="452.4"><stop offset="0" stop-color="#01fbfd"/><stop offset="0.111" stop-color="#00d5fd"/><stop offset="0.222" stop-color="#02b0fd"/><stop offset="0.333" stop-color="#0e91fd"/><stop offset="0.444" stop-color="#1868fd"/><stop offset="0.556" stop-color="#1a63fc"/><stop offset="0.667" stop-color="#2a53fc"/><stop offset="0.778" stop-color="#6219fc"/><stop offset="0.889" stop-color="#9506fd"/><stop offset="1" stop-color="#ac03fc"/></linearGradient>
+    <linearGradient id="g-laptop" gradientUnits="userSpaceOnUse" x1="308.3" y1="256.8" x2="423.5" y2="318"><stop offset="0" stop-color="#2098f8"/><stop offset="0.111" stop-color="#267dfc"/><stop offset="0.222" stop-color="#2f75fc"/><stop offset="0.333" stop-color="#3a64fb"/><stop offset="0.444" stop-color="#4956fc"/><stop offset="0.556" stop-color="#5a40fc"/><stop offset="0.667" stop-color="#6c26fc"/><stop offset="0.778" stop-color="#8017fc"/><stop offset="0.889" stop-color="#950ef9"/><stop offset="1" stop-color="#8914fb"/></linearGradient>
+    <linearGradient id="g-antenna" gradientUnits="userSpaceOnUse" x1="294.2" y1="132.8" x2="321.9" y2="140.7"><stop offset="0" stop-color="#04d9fb"/><stop offset="0.111" stop-color="#03ccf8"/><stop offset="0.222" stop-color="#01c7fc"/><stop offset="0.333" stop-color="#02bdfd"/><stop offset="0.444" stop-color="#04aefc"/><stop offset="0.556" stop-color="#0b9ffc"/><stop offset="0.667" stop-color="#1692fc"/><stop offset="0.778" stop-color="#1c89fd"/><stop offset="0.889" stop-color="#257ffc"/><stop offset="1" stop-color="#3678f7"/></linearGradient>
+    <linearGradient id="g-head" gradientUnits="userSpaceOnUse" x1="236.9" y1="173.7" x2="390.5" y2="223.6"><stop offset="0" stop-color="#01c4fa"/><stop offset="0.111" stop-color="#02bdfd"/><stop offset="0.222" stop-color="#04a8fd"/><stop offset="0.333" stop-color="#1595fe"/><stop offset="0.444" stop-color="#2286fd"/><stop offset="0.556" stop-color="#3075fc"/><stop offset="0.667" stop-color="#4a57fd"/><stop offset="0.778" stop-color="#623dfd"/><stop offset="0.889" stop-color="#791dfc"/><stop offset="1" stop-color="#940afc"/></linearGradient>
+    <linearGradient id="g-body" gradientUnits="userSpaceOnUse" x1="234.4" y1="261.6" x2="278.7" y2="307.5"><stop offset="0" stop-color="#01bfe4"/><stop offset="0.111" stop-color="#02c9fe"/><stop offset="0.222" stop-color="#01bcfb"/><stop offset="0.333" stop-color="#01affd"/><stop offset="0.444" stop-color="#0ba1fd"/><stop offset="0.556" stop-color="#1590fd"/><stop offset="0.667" stop-color="#1f84fd"/><stop offset="0.778" stop-color="#2978fd"/><stop offset="0.889" stop-color="#3963fc"/><stop offset="1" stop-color="#4c48f7"/></linearGradient>
+    <linearGradient id="g-track" gradientUnits="userSpaceOnUse" x1="246.4" y1="298.3" x2="396.9" y2="433.8"><stop offset="0" stop-color="#0164fe"/><stop offset="0.111" stop-color="#0078fc"/><stop offset="0.222" stop-color="#0c5efd"/><stop offset="0.333" stop-color="#1657fd"/><stop offset="0.444" stop-color="#2c3bfc"/><stop offset="0.556" stop-color="#4033fd"/><stop offset="0.667" stop-color="#5922fc"/><stop offset="0.778" stop-color="#6d0ffc"/><stop offset="0.889" stop-color="#8e0efd"/><stop offset="1" stop-color="#8805fd"/></linearGradient>
+    <!-- holes punched through the building: windows, screen, wheel rims -->
+    <mask id="cutouts" maskUnits="userSpaceOnUse" x="-20" y="-14" width="514" height="465">
+      <rect x="-20" y="-14" width="514" height="465" fill="#fff"/>
+      <g fill="#000" transform="matrix(1.0001 0 0 1.0579 -1.73 5.69)">
+        <path d="M43.1 286.38 A3.5 3.5 0 0 1 45.44 283.08 L68.04 275.17 A3.5 3.5 0 0 1 72.7 278.47 L72.7 314.66 A3.5 3.5 0 0 1 70.36 317.96 L47.76 325.87 A3.5 3.5 0 0 1 43.1 322.57Z"/>
+        <path d="M90.2 270.48 A3.5 3.5 0 0 1 92.54 267.18 L115.14 259.27 A3.5 3.5 0 0 1 119.8 262.57 L119.8 298.76 A3.5 3.5 0 0 1 117.46 302.06 L94.86 309.97 A3.5 3.5 0 0 1 90.2 306.67Z"/>
+        <path d="M137.3 254.48 A3.5 3.5 0 0 1 139.64 251.18 L162.24 243.27 A3.5 3.5 0 0 1 166.9 246.57 L166.9 282.76 A3.5 3.5 0 0 1 164.56 286.06 L141.96 293.97 A3.5 3.5 0 0 1 137.3 290.67Z"/>
+        <path d="M319 257.54 A4.5 4.5 0 0 1 323.22 254.6 L429.63 254.6 A4.5 4.5 0 0 1 433.85 260.66 L409.63 326.29 A2 2 0 0 1 407.75 327.6 L296.02 327.6 A2 2 0 0 1 294.14 324.91Z"/>
+        <circle cx="238.5" cy="363.6" r="18.05" fill="none" stroke="#000" stroke-width="11.5"/>
+        <circle cx="328.8" cy="363.6" r="18.05" fill="none" stroke="#000" stroke-width="11.5"/>
+        <circle cx="420.1" cy="363.6" r="18.05" fill="none" stroke="#000" stroke-width="11.5"/>
+      </g>
+    </mask>
+    <!-- clearance gap around the laptop, carved out of the robot -->
+    <mask id="robot-gap" maskUnits="userSpaceOnUse" x="-20" y="-14" width="514" height="465">
+      <rect x="-20" y="-14" width="514" height="465" fill="#fff"/>
+      <path transform="matrix(1.0001 0 0 1.0579 -1.73 5.69)" d="M311.24 248.23 A8 8 0 0 1 318.74 243 L440.09 243 A8 8 0 0 1 447.59 253.77 L416.51 338 L278.11 338Z" fill="#000" stroke="#000" stroke-width="21" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+  <path class="smoke" transform="matrix(1.0847 0 0 1.0847 -18.33 4.46)" d="M121.2 94.8 C123.18 89.14 126.41 83.9 129.93 79.07 C141.2 63.57 158.6 53.38 176.98 48.71 C197.54 43.5 213.3 44.17 234.49 35.39 C257.18 25.99 272.31 7.86 297.56 3.89 C319.87 0.39 345.69 15.47 346.78 39.54 C347.87 63.83 328.56 82.53 307.31 90.78 C265.12 107.14 222.34 87.33 180.26 81.95 C166.51 80.19 152.84 83.38 139.92 87.64 C135.62 89.06 131.31 91.62 127.41 93.92 C126.18 94.64 124.61 96.36 123.16 96.52 C121.7 96.68 121.76 95.69 121.2 94.8Z" fill="url(#g-smoke)"/>
+  <g class="building" mask="url(#cutouts)">
+    <g transform="matrix(1.0001 0 0 1.0579 -1.73 5.69)">
+      <path class="factory" d="M4 258.64 A5 5 0 0 1 6.74 254.18 L97.6 208.02 L103.98 114.06 A5 5 0 0 1 108.97 109.4 L163.33 109.4 A5 5 0 0 1 168.33 114.27 L170.2 186.6 L208.12 167.14 A5 5 0 0 1 215.4 171.59 L215.4 325 A3 3 0 0 0 218.4 328 L437.7 328 A35.7 35.7 0 0 1 473.4 363.7 L473.4 363.9 A35.7 35.7 0 0 1 437.7 399.6 L45 399.6 A41 41 0 0 1 4 358.6Z" fill="url(#g-factory)"/>
+      <path class="laptop" d="M311.24 248.23 A8 8 0 0 1 318.74 243 L440.09 243 A8 8 0 0 1 447.59 253.77 L416.51 338 L278.11 338Z" fill="url(#g-laptop)"/>
+      <g class="track" fill="url(#g-track)"><rect x="192" y="339.6" width="265" height="48" rx="24"/></g>
+    </g>
+  </g>
+  <g class="robot" mask="url(#robot-gap)">
+    <g transform="matrix(1.0148 0 0 1.0148 -6.17 14.61)">
+      <g fill="url(#g-antenna)"><circle cx="309.6" cy="133.6" r="16.6"/><rect x="303.2" y="142" width="12.8" height="24" rx="0"/></g>
+      <path d="M268 161h89.4a40 42.7 0 0 1 0 85.4h-89.4a40 42.7 0 0 1 0 -85.4z M275.3 177h74.4a26.3 26.3 0 0 1 0 52.6h-74.4a26.3 26.3 0 0 1 0 -52.6z" fill-rule="evenodd" fill="url(#g-head)"/>
+      <g fill="url(#g-body)"><rect x="228" y="258" width="110" height="57.5" rx="6"/></g>
+      <g class="eyes" fill="#fbfafb"><rect x="275.8" y="190" width="16.6" height="27" rx="8.3"/><rect x="329.4" y="190" width="16.6" height="27" rx="8.3"/></g>
+    </g>
+  </g>
+  <g class="code" transform="matrix(1.0001 0 0 1.0579 -1.73 5.69)" fill="none" stroke="#f86c21" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M347.5 277.6 L331.6 290.5 L347.5 303.4"/><path d="M375.8 269.4 L360.3 309.6"/><path d="M387.4 277.6 L401.6 290.5 L387.4 303.4"/></g>
+</svg>

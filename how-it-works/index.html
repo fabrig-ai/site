@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How it works · fabrig</title>
+<meta name="description" content="fabrig in plain words: mechanics are code, judgement is an LLM&#x27;s, five primitives, and a path you can change.">
+<meta property="og:title" content="How it works · fabrig">
+<meta property="og:description" content="fabrig in plain words: mechanics are code, judgement is an LLM&#x27;s, five primitives, and a path you can change.">
+<meta name="theme-color" content="#01061b">
+<link rel="icon" href="/assets/fabrig-logo.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/InterDisplay-Bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="fabrig home">
+      <img class="brand__mark" src="/assets/fabrig-logo.svg" width="87" height="78" alt="">
+      <span class="brand__name">fabrig</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul class="primary-nav__list">
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/how-it-works/" aria-current="page">How it works</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/configure/">Configure</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/questions/">Questions</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/manifesto/">Manifesto</a></li>
+      </ul>
+    </nav>
+    <div class="site-header__actions">
+      <a class="icon-link" href="https://github.com/fabrig-ai/fabrig" aria-label="Source on GitHub"><img src="/assets/icons/github.svg" width="34" height="34" alt=""></a>
+      <a class="button button--primary button--small" href="/#start">Get started <img class="button__icon" src="/assets/icons/arrow-right-small.svg" width="14" height="12" alt=""></a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+<main class="doc prose" id="main">
+<p class="kicker">the short version</p>
+<h1>How it works, in plain words.</h1>
+<p class="lede">fabrig is a family of tools for building software with agents, and temper is the one you run. This page is written for people. The design documents in the repository are written for agents, and they read that way.</p>
+
+<h2 id="idea">The one idea</h2>
+<p>Mechanics are code, and judgement is an LLM’s. A model is woken only to produce a change, repair it, review it or resolve a conflict. Queueing, updating and merging are deterministic procedure, and authority enforces the split: agents have no merge or update tool to misuse.</p>
+<p>People decide what to build and why, at the level of goals, designs and plans, and step in where agents can’t decide.</p>
+
+<h2 id="primitives">Five primitives</h2>
+<p>Everything temper does is built from five things, which is why so many ways of working fit. Plans, coordinators, chats, goals and reviews are all made from them.</p>
+<ul class="list">
+  <li><b>Task:</b> what is asked.</li>
+  <li><b>Executor:</b> who does it: an agent, a procedure or a person.</li>
+  <li><b>Message:</b> all a task hears once it has started.</li>
+  <li><b>Authority:</b> what it may do. It only narrows when delegated.</li>
+  <li><b>Connector:</b> an external system, such as your forge.</li>
+</ul>
+
+<h2 id="path">A change, by default</h2>
+<p>This is the path temper takes out of the box. ✦ marks a model being woken, ■ marks code.</p>
+<ol class="steps marked">
+  <li data-k="a"><b>Produce</b><p>An agent is woken to write the change, under a charter and a budget.</p></li>
+  <li data-k="a"><b>Review</b><p>An agent reviews it. This is a gate in the stock landing rule, so it’s a setting you can change.</p></li>
+  <li data-k="c"><b>Queue</b><p>Each landing branch has its own queue. Priorities order it.</p></li>
+  <li data-k="c"><b>Update</b><p>Code brings the change up to date with main. On a conflict, an agent is woken for that alone, to resolve it.</p></li>
+  <li data-k="c"><b>Gate</b><p>Procedure runs the checks. On red, an agent is woken to repair what the gate named, and the gate runs again.</p></li>
+  <li data-k="c"><b>Merge</b><p>Pinned to the commit that was checked, and no other. Landing rules are checked here, whatever a task’s authority says.</p></li>
+  <li data-k="c"><b>Verify</b><p>Slower suites follow main. A red is rerun alone, then bisection assigns the blame.</p></li>
+</ol>
+
+<h2 id="change">Changing the path</h2>
+<p>That path is one of many. You can say any of these to the <a href="/configure/">configuring agent</a>, in your own words.</p>
+<ul class="list">
+  <li><b>Put a person in.</b> Add an approval to a landing rule: how many people, in which role.</li>
+  <li><b>Take a step out.</b> Keep the agent’s review, add a second gate, or drop it.</li>
+  <li><b>Go light where it’s safe.</b> A goal can hold a branch of its own under lighter rules, with its changes landing there quickly and the whole goal checked once before main.</li>
+  <li><b>Route questions.</b> A read-only foreman can answer first, then a coordinator, then you.</li>
+  <li><b>Choose a model per role.</b> Strongest where judgement is dense, cheaper where it isn’t.</li>
+  <li><b>Land by queue or by turn.</b> By turn, gate results are kept per tree, so a tree is proved once.</li>
+  <li><b>Add what you need.</b> Tiers after landing, QA, a second reviewer: each is a charter, and a gate or a delegate.</li>
+</ul>
+
+<h2 id="line">What no setting moves</h2>
+<ul class="list">
+  <li><b>Agents never get a merge or update tool.</b></li>
+  <li><b>Merging is pinned to an exact commit:</b> the head its decision saw, and no other.</li>
+  <li><b>Delegated authority only narrows,</b> and budgets are carved from the parent’s.</li>
+  <li><b>Effects are made once.</b> An uncertain one waits for a person, not a guess.</li>
+  <li><b>Work outlives processes and machines.</b></li>
+</ul>
+
+<h2 id="forge">A careful guest on your forge</h2>
+<p>Repositories are adopted as they are, on Forgejo or GitHub. temper writes only to what it owns, never forces a push, and merges exactly the head its decision saw. A change it didn’t make to what it owns is drift: the work relying on it is held, and nothing is written over.</p>
+
+<h2 id="underneath">Underneath</h2>
+<h3>Reliable</h3>
+<ul class="list">
+  <li>Each kind of write has a recovery class: keyed, conditional, idempotent or unrecoverable.</li>
+  <li>Effects go through an outbox, released only after their commit is durable.</li>
+  <li>Retry deadlines are absolute and committed before each attempt.</li>
+  <li>Fencing uses ordered grace periods.</li>
+  <li>Restart follows a fixed script, ending with the outbox settled by key before any new decision.</li>
+  <li>Temporal, Inngest and LangGraph give you at-least-once activities and leave idempotency to you.</li>
+</ul>
+<h3>Scalable</h3>
+<ul class="list">
+  <li>The target: a ready branch lands first time, within minutes, and no branch waits for another’s fault.</li>
+  <li>Merging is pinned to an exact commit, so main’s commit is the gated one.</li>
+  <li>Workers dial one engine and scale out across hosts.</li>
+  <li>High availability is planned, on a distributed, replicated single-writer KV store (skein-kv).</li>
+</ul>
+<h3>Flexible</h3>
+<ul class="list">
+  <li>An executor is an agent, a procedure or a person.</li>
+  <li>Templates, charters and landing rules are settings, on jig’s model of tasks and delegation.</li>
+  <li>Budgets are carved from a project’s weekly spend, and a task without enough is held.</li>
+</ul>
+
+<h2 id="family">The family</h2>
+<p>One repository, five trees, and dependencies that point one way.</p>
+<div class="scroll"><table>
+  <thead><tr><th scope="col">Tree</th><th scope="col">What it is</th><th scope="col">Builds on</th></tr></thead>
+  <tbody>
+    <tr><td><b>skein</b></td><td>One thread, one loop, no async: the io and protocol kit</td><td></td></tr>
+    <tr><td><b>smith</b></td><td>A protocol-driven agent loop</td><td>skein</td></tr>
+    <tr><td><b>jig</b></td><td>The engine for agentic applications: durable work, authority, effects made once</td><td>skein, smith</td></tr>
+    <tr><td><b>temper</b></td><td>Agent-driven software development on a forge: the part you run</td><td>skein, smith, jig</td></tr>
+    <tr><td><b>hearth</b></td><td>Immutable machines, built from a revision</td><td>skein</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="words">The words you’ll meet</h2>
+<p>You don’t need these to start, since the configuring agent speaks your language. They’re here for when you read a proposal’s settings.</p>
+<div class="scroll"><table>
+  <tbody>
+    <tr><th scope="row">Goal</th><td>A tracked task. Its tree of delegates is its plan.</td></tr>
+    <tr><th scope="row">Change</th><td>One piece of work on a branch, carried to landing by a procedure.</td></tr>
+    <tr><th scope="row">Charter</th><td>A role: its instructions, models, tools and limits per run.</td></tr>
+    <tr><th scope="row">Template</th><td>A way to start work, such as a chat or a goal.</td></tr>
+    <tr><th scope="row">Landing rule</th><td>What a change must meet before temper merges it: CI, being up to date, gates, approvals.</td></tr>
+    <tr><th scope="row">Gate</th><td>A check that counts for landing: an agent’s review, or a test workflow.</td></tr>
+    <tr><th scope="row">Receipt</th><td>A gate’s recorded result for a tree, reused rather than run again.</td></tr>
+    <tr><th scope="row">Tier</th><td>A slower suite that follows a branch after landing.</td></tr>
+    <tr><th scope="row">Coordinator</th><td>The agent that shapes a goal’s plan and handles its results.</td></tr>
+    <tr><th scope="row">Foreman</th><td>A read-only agent that answers a producer’s questions first.</td></tr>
+    <tr><th scope="row">Proposal</th><td>A request beyond its maker’s authority, waiting for someone who may decide.</td></tr>
+    <tr><th scope="row">Revision</th><td>The settings as one change left them. A task keeps the charter of the revision it was made in.</td></tr>
+  </tbody>
+</table></div>
+<p class="more"><a href="/configure/">Tell temper how you work</a> · <a href="/questions/">The hard questions</a></p>
+</main>
+</div>
+
+<div class="container">
+<footer>
+  <a class="brand brand--small" href="/"><img class="brand__mark" src="/assets/fabrig-logo.svg" width="87" height="78" alt=""><span class="brand__name">fabrig</span></a>
+  <div class="links">
+    <span>MIT</span>
+    <a href="https://github.com/fabrig-ai/fabrig">Source</a>
+    <a href="https://git.fabrig.ai/">Forge</a>
+    <a href="https://status.fabrig.ai/">Status</a>
+  </div>
+</footer>
+</div>
+</body>
+</html>

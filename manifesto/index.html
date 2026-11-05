@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manifesto · fabrig</title>
+<meta name="description" content="What fabrig holds to be true about making software with agents: discipline first, proof over reading, autonomy as a dial.">
+<meta property="og:title" content="Manifesto · fabrig">
+<meta property="og:description" content="What fabrig holds to be true about making software with agents: discipline first, proof over reading, autonomy as a dial.">
+<meta name="theme-color" content="#01061b">
+<link rel="icon" href="/assets/fabrig-logo.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/InterDisplay-Bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="fabrig home">
+      <img class="brand__mark" src="/assets/fabrig-logo.svg" width="87" height="78" alt="">
+      <span class="brand__name">fabrig</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul class="primary-nav__list">
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/how-it-works/">How it works</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/configure/">Configure</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/questions/">Questions</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/manifesto/" aria-current="page">Manifesto</a></li>
+      </ul>
+    </nav>
+    <div class="site-header__actions">
+      <a class="icon-link" href="https://github.com/fabrig-ai/fabrig" aria-label="Source on GitHub"><img src="/assets/icons/github.svg" width="34" height="34" alt=""></a>
+      <a class="button button--primary button--small" href="/#start">Get started <img class="button__icon" src="/assets/icons/arrow-right-small.svg" width="14" height="12" alt=""></a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+<main class="doc prose" id="main">
+<p class="kicker">manifesto</p>
+<h1>Building with agents, on purpose.</h1>
+<p class="lede">What fabrig holds to be true about making software with agents. Disagree freely: most of it is a setting.</p>
+
+<article class="thesis" id="trust">
+  <p class="n">1</p>
+  <h2>The bottleneck has moved.</h2>
+  <p>Agents write more code in a day than a team can read in a year. Writing no longer limits software. Trust does: knowing that what landed is what was checked, and that what was checked was worth checking. Everything below follows from that.</p>
+</article>
+
+<article class="thesis" id="mechanics">
+  <p class="n">2</p>
+  <h2>Mechanics are code. Judgement is an LLM’s.</h2>
+  <p>If a step has one right answer, it’s a procedure. A procedure is faster, repeatable, testable and costs no tokens. A model is woken only where something has to be decided: making a change, repairing a failure, reviewing, resolving a conflict. Every step moved to code stops depending on a model’s good day.</p>
+</article>
+
+<article class="thesis" id="authority">
+  <p class="n">3</p>
+  <h2>A rule an agent can break is a wish.</h2>
+  <p>Instructions are useful, and agents mostly follow them. Mostly isn’t a guarantee. What must hold belongs in authority, not in a prompt: agents aren’t asked to leave the merge alone, they’re given no merge tool. Know which of your rules are enforced and which are followed, and never confuse the two.</p>
+  <p>When the outcome of a write can’t be known, the work waits for a person. A guess is the worst answer an unattended system can give.</p>
+</article>
+
+<article class="thesis" id="discipline">
+  <p class="n">4</p>
+  <h2>Discipline comes first.</h2>
+  <p>You can’t build reliable software at scale with agents on top of flaky CI and badly engineered code. Agents don’t clean up a mess, they extend it, and faster than anyone can keep up. Without strict discipline they drift, and slop accumulates.</p>
+  <p>fabrig is built for reliable, quality software at scale, with minimal or zero human intervention. It makes that possible. It can’t teach anyone how to do it. A fast car doesn’t make a driver, and a crash isn’t the car’s fault. Good software design is still a human responsibility, though models are getting close.</p>
+</article>
+
+<article class="thesis" id="properties">
+  <p class="n">5</p>
+  <h2>Properties, not recipes.</h2>
+  <p>What matters is what your code and process guarantee: tests that mean something, builds that repeat, gates that tell the truth, design that’s written down. These are well-known engineering practices, and none of them depends on a language or a programming model. fabrig’s own answer, a strict subset of Rust under deterministic simulation, is one answer. Yours is your pick.</p>
+</article>
+
+<article class="thesis" id="dial">
+  <p class="n">6</p>
+  <h2>Autonomy is a dial, not a switch.</h2>
+  <p>One person in a chat approving every change is a valid way to use fabrig. So are goals that land on their own overnight. Neither is the grown-up version of the other. Start where your repository is, and turn the dial as it earns it.</p>
+</article>
+
+<article class="thesis" id="configure">
+  <p class="n">7</p>
+  <h2>Software should configure itself.</h2>
+  <p>You shouldn’t have to learn a product’s vocabulary to tell it what you want. Say how you work, and it should ask what it needs, propose how it will run that, and say plainly what it can’t do. Most software will end up configured this way.</p>
+  <p>The result has to stay ordinary: versioned settings you can read, compare and restore, never a hidden state an assistant manages.</p>
+</article>
+
+<article class="thesis" id="proof">
+  <p class="n">8</p>
+  <h2>Proof scales. Reading doesn’t.</h2>
+  <p>No one will read what agents write at this rate, and pretending otherwise is theatre. People should decide goals, designs and plans. Code gets tests, simulation, gates, verification after landing, and continuous review by agents: for debt today, then for security and whatever else matters to you. Judge the outcomes, in numbers, in public.</p>
+</article>
+
+<article class="thesis" id="own">
+  <p class="n">9</p>
+  <h2>Own what you depend on.</h2>
+  <p>When building was expensive, you took what existed. When building is cheap, a dependency’s remaining costs dominate: fit, control, churn. Not-invented-here used to be a vice. With generated code it’s a legitimate choice: build what you need, exactly how you need it, and keep control of it. Be honest about the exceptions. Don’t write your own cryptography.</p>
+</article>
+
+<article class="thesis" id="tokens">
+  <p class="n">10</p>
+  <h2>Spend tokens on judgement.</h2>
+  <p>Your limit is tokens, not machines: hardware can follow the work. So make every token count. Offload to code whatever doesn’t need a model. Give the strongest model to the decisions that deserve it. Measure what a verified change costs, and keep that number where whoever pays can see it.</p>
+</article>
+
+<article class="thesis" id="show">
+  <p class="n">11</p>
+  <h2>Show the work.</h2>
+  <p>Claims are cheap in this field. fabrig is built with its own prototype, its numbers come from its own log, and its source and design are in the open. Where it’s unfinished or unproven, it says so.</p>
+</article>
+
+<h2 id="for-whom">Who this is for</h2>
+<p>Teams that already hold a strict engineering bar and want far more from it. And anyone prepared to build that bar first, at a lower setting of the dial.</p>
+<p>It isn’t for anyone hoping agents will rescue a codebase nobody is willing to own.</p>
+<p class="more"><a href="/questions/">The hard questions</a> · <a href="/configure/">Tell temper how you work</a></p>
+</main>
+</div>
+
+<div class="container">
+<footer>
+  <a class="brand brand--small" href="/"><img class="brand__mark" src="/assets/fabrig-logo.svg" width="87" height="78" alt=""><span class="brand__name">fabrig</span></a>
+  <div class="links">
+    <span>MIT</span>
+    <a href="https://github.com/fabrig-ai/fabrig">Source</a>
+    <a href="https://git.fabrig.ai/">Forge</a>
+    <a href="https://status.fabrig.ai/">Status</a>
+  </div>
+</footer>
+</div>
+</body>
+</html>

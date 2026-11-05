@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2.5 1.5 29 50" width="11.6" height="20" aria-hidden="true">
+  <defs>
+    <linearGradient id="bolt-small-fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb45e"/>
+      <stop offset="1" stop-color="#f58a3e"/>
+    </linearGradient>
+  </defs>
+  <path d="M22.6 2.3 18.4 21.2h12.4L10.6 50.3l5.2-20.9H3.2Z" fill="url(#bolt-small-fill)" stroke="url(#bolt-small-fill)" stroke-width="2" stroke-linejoin="round"/>
+</svg>

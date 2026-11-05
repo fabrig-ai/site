@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Configure · fabrig</title>
+<meta name="description" content="temper&#x27;s built-in configuring agent turns how you work into settings an owner accepts, and says what it can&#x27;t do yet.">
+<meta property="og:title" content="Configure · fabrig">
+<meta property="og:description" content="temper&#x27;s built-in configuring agent turns how you work into settings an owner accepts, and says what it can&#x27;t do yet.">
+<meta name="theme-color" content="#01061b">
+<link rel="icon" href="/assets/fabrig-logo.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/InterDisplay-Bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="fabrig home">
+      <img class="brand__mark" src="/assets/fabrig-logo.svg" width="87" height="78" alt="">
+      <span class="brand__name">fabrig</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul class="primary-nav__list">
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/how-it-works/">How it works</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/configure/" aria-current="page">Configure</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/questions/">Questions</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/manifesto/">Manifesto</a></li>
+      </ul>
+    </nav>
+    <div class="site-header__actions">
+      <a class="icon-link" href="https://github.com/fabrig-ai/fabrig" aria-label="Source on GitHub"><img src="/assets/icons/github.svg" width="34" height="34" alt=""></a>
+      <a class="button button--primary button--small" href="/#start">Get started <img class="button__icon" src="/assets/icons/arrow-right-small.svg" width="14" height="12" alt=""></a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+<main class="doc prose" id="main">
+<p class="kicker">agent-driven configuration</p>
+<h1>Tell temper how you work.</h1>
+<p class="lede">temper, the part of fabrig that writes code, has a configuring agent built in. Describe your process in your own words, or point it at a document. It asks what it needs, proposes the settings, and names whatever it can’t do yet.</p>
+
+<h2 id="how">How it goes</h2>
+<ol class="steps">
+  <li><b>You describe it.</b><p>In a chat: your own words, a pasted text, or the path of a document in an adopted repository.</p></li>
+  <li><b>It asks.</b><p>One question at a time, until it can propose. It reads your current settings first.</p></li>
+  <li><b>It proposes.</b><p>One proposal, split into what temper will enforce and what your agents will follow, with what the change does to running work.</p></li>
+  <li><b>An owner decides.</b><p>Accept it, reject it with a reason, or ask for a change. A rejection goes back to the agent as your words, and it revises.</p></li>
+</ol>
+
+<h2 id="proposal">What a proposal looks like</h2>
+<p>Changes are grouped by what you know, in your words, with the settings’ whole values underneath.</p>
+<div class="block"><span class="out">Proposal 12 · from “How we work” · against revision 7</span>
+
+<b>temper enforces</b>
+  Testers    strongest model → faster model
+  main       one maintainer’s approval added
+
+<b>your agents follow</b>
+  Owners     acme/handbook process.md, “Owners” (main)
+
+<b>Effect</b>
+  New work follows this from now. Nothing restarts.
+  9 running tasks are on revision 7. They finish on it,
+  or move at their next run: your choice.
+  2 chats move at their next run.</div>
+<p class="note">Illustrative. The names are made up, the shape is the real one.</p>
+
+<h2 id="split">Enforced, or followed</h2>
+<p>The agent puts one test to each sentence you say: would temper’s engine act differently without it? If the sentence changes what temper wakes, schedules, permits, pays for, lands or holds, it’s structure, and becomes settings. If only the agent reading it would act differently, it’s a rule, and stays as text your runs read.</p>
+<div class="scroll"><table>
+  <thead><tr><th scope="col">You say</th><th scope="col">Kind</th><th scope="col">Where it goes</th></tr></thead>
+  <tbody>
+    <tr><td>“Producers run on the faster model”</td><td>enforced</td><td>each role’s model</td></tr>
+    <tr><td>“Changes into a goal’s branch land with no CI”</td><td>enforced</td><td>a landing rule for goal branches</td></tr>
+    <tr><td>“One of us approves everything on main”</td><td>enforced</td><td>an approval in a landing rule</td></tr>
+    <tr><td>“Push early, and finish with what you left”</td><td>followed</td><td>the coding agent’s instructions</td></tr>
+    <tr><td>“Never fix what you don’t own”</td><td>followed</td><td>instructions: authority is per repository, not per path</td></tr>
+  </tbody>
+</table></div>
+<p>Where temper’s model has a mechanism, the agent offers to turn a rule into structure, and says what each choice guarantees. You choose. A rule is never made structure behind your back, and what’s guaranteed is never confused with what depends on agents behaving.</p>
+
+<h2 id="dial">Four stops on the dial</h2>
+<p>The home page shows four ways of working. They’re examples, not modes: each is just settings, and anything in between is too.</p>
+<div class="scroll"><table class="ways-table">
+  <thead><tr><th scope="col"></th><th scope="col">Pair</th><th scope="col">Team</th><th scope="col">Stock</th><th scope="col">As fabrig builds itself</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Work starts from</th><td>a chat</td><td>a chat</td><td>a chat or a goal</td><td>a person’s design draft</td></tr>
+    <tr><th scope="row">Review</th><td>you</td><td>an agent, then a person</td><td>an agent</td><td>tests, tiers, the goal’s full gate</td></tr>
+    <tr><th scope="row">main asks for</th><td>CI, up to date, approval</td><td>CI, up to date, agent’s review, approval</td><td>CI, up to date, agent’s review</td><td>CI, up to date</td></tr>
+    <tr><th scope="row">A person decides</th><td>every landing</td><td>every landing</td><td>what agents ask</td><td>goals, and what’s passed up</td></tr>
+    <tr><th scope="row">Models</th><td>one is enough</td><td>one, or one per role</td><td>your first configured</td><td>one per role, chosen per change</td></tr>
+    <tr><th scope="row">Suits</th><td>a repository still earning trust</td><td>a team that wants sign-off</td><td>a disciplined repository</td><td>a very high bar, many changes at once</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="trust">Why you can trust the result</h2>
+<ul class="list">
+  <li><b>It changes nothing itself.</b> Its tools are reads and one proposal, under the same role checks a person has. Only an owner’s decision changes settings.</li>
+  <li><b>Members ask, owners decide.</b> A member’s configuring chat proposes as an owner’s does, and the proposal waits in an owner’s inbox.</li>
+  <li><b>A change is one decision.</b> A set of settings is checked whole against the revision it was made from, and refused as stale if another is current. After a crash the old revision holds or the new one does, never a mix.</li>
+  <li><b>The result is ordinary.</b> Settings are versioned records you can list, read and compare, value by value.</li>
+  <li><b>Running work keeps what it started with.</b> Accepting restarts nothing, and new work follows the change. You can move running work at its next run. What a task may do is never pinned: rules and policies apply to every decision.</li>
+  <li><b>Going back is a proposal too.</b> Restoring a revision is another reviewed change, never a silent rollback.</li>
+</ul>
+
+<h2 id="limits">What it won’t do</h2>
+<ul class="list">
+  <li><b>Pretend.</b> What temper can’t model, it says, and offers the nearest setting, never a stand-in presented as the real thing. Two approvals for one path is an example: landing rules cover branches and repositories, not paths.</li>
+  <li><b>Touch the machine.</b> A provider, a forge, a listener, a worker or a limit needs a restart and belongs to whoever runs the deployment. It says so rather than proposing it.</li>
+  <li><b>Design your process.</b> It runs the process you describe. Whether that process is a good one, or your repository is ready for it, stays your call.</li>
+  <li><b>Run on the playground’s scripted model.</b> It needs a real model, so sign one in first.</li>
+</ul>
+
+<h2 id="acceptance">How it’s tested</h2>
+<p>On a box that holds no recipe, it’s told only “set this project up the way these documents describe”, the documents being fabrig’s own process. Its proposal is then checked obligation by obligation, by code: each setting must hold its value, and each gap must be named. A model reads the accepted instructions against the process’s rules. Then a draft is carried from intake to landing under what it proposed.</p>
+
+<h2 id="ask">Ask it anything</h2>
+<p>It also explains. It answers from your settings and from the documentation built into the binary, and describes the settings back to you as a workflow. That makes it the fastest way in: you can skip the docs and ask.</p>
+<ul class="list">
+  <li>“What happens when I start a goal?”</li>
+  <li>“Why did the tester run on that model?”</li>
+  <li>“Describe how this project runs, as a workflow.”</li>
+</ul>
+
+<h2 id="start">Start</h2>
+<p>In the browser, choose <b>Tell temper how you work</b>, then review the proposal on its own page. Every act a page offers, a command offers too:</p>
+<div class="block"><span class="prompt">$ </span>temper ctl DIR chat start --project PROJECT --template 3 \
+    "Set this project up the way docs/process.md describes"
+<span class="prompt">$ </span>temper ctl DIR proposal show PROPOSAL
+<span class="prompt">$ </span>temper ctl DIR proposal decide PROPOSAL accept --key KEY
+<span class="prompt">$ </span>temper ctl DIR settings show
+<span class="prompt">$ </span>temper ctl DIR revision restore REVISION "why" --key KEY</div>
+<p class="more"><a href="/how-it-works/">How it works</a> · <a href="/questions/#wrong">What if it gets it wrong?</a></p>
+</main>
+</div>
+
+<div class="container">
+<footer>
+  <a class="brand brand--small" href="/"><img class="brand__mark" src="/assets/fabrig-logo.svg" width="87" height="78" alt=""><span class="brand__name">fabrig</span></a>
+  <div class="links">
+    <span>MIT</span>
+    <a href="https://github.com/fabrig-ai/fabrig">Source</a>
+    <a href="https://git.fabrig.ai/">Forge</a>
+    <a href="https://status.fabrig.ai/">Status</a>
+  </div>
+</footer>
+</div>
+</body>
+</html>
