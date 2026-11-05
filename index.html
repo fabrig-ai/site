@@ -120,7 +120,7 @@ http://127.0.0.1:8367/…</span></code></pre>
     <article>
       <h3>Prove.</h3>
       <p class="mono">a lab <span>· next</span></p>
-      <p>Automated QA.</p>
+      <p>Continuous QA / security / tech-debt.</p>
     </article>
     <article>
       <h3>Run.</h3>
@@ -142,18 +142,11 @@ http://127.0.0.1:8367/…</span></code></pre>
     <button type="button" role="tab" id="tab-stock" aria-controls="stock" aria-selected="true">Stock</button>
     <button type="button" role="tab" id="tab-self" aria-controls="self" aria-selected="false" tabindex="-1">As fabrig builds itself</button>
   </div>
-  <div class="dial-ends" aria-hidden="true"><span>more of you</span><span>more of your agents</span></div>
+  <div class="dial-ends"><span aria-hidden="true">more of you</span><span class="dial-note">Four examples, not modes. Anything in between is just settings.</span><span aria-hidden="true">more of your agents</span></div>
 
   <div class="pane" id="pair" role="tabpanel" aria-labelledby="tab-pair">
     <h3 class="pane-name">Pair</h3>
     <div><p class="say-by">you say</p><blockquote class="say">“I stay in the loop. An agent makes the change, and nothing reaches main until I’ve approved it.”</blockquote></div>
-    <div class="proposal">
-      <p class="proposal-head"><span>temper proposes</span><span>illustrative</span></p>
-      <h4>temper enforces</h4>
-      <ul><li>main: CI passed, up to date, one person’s approval</li></ul>
-      <h4>your agents follow</h4>
-      <ul><li>Ask before touching anything unrelated</li></ul>
-    </div>
     <ol class="stops" aria-label="The path">
       <li data-k="a">produce</li>
       <li data-k="c">check</li>
@@ -166,15 +159,7 @@ http://127.0.0.1:8367/…</span></code></pre>
   <div class="pane" id="team" role="tabpanel" aria-labelledby="tab-team">
     <h3 class="pane-name">Team</h3>
     <div><p class="say-by">you say</p><blockquote class="say">“Agents review everything, then one of us signs off. Anything under payments/ needs two of us.”</blockquote></div>
-    <div class="proposal">
-      <p class="proposal-head"><span>temper proposes</span><span>illustrative</span></p>
-      <h4>temper enforces</h4>
-      <ul><li>main: CI passed, up to date, an agent’s review, one maintainer’s approval</li></ul>
-      <h4>your agents follow</h4>
-      <ul><li>Flag changes under payments/ for a second person</li></ul>
-      <h4>it can’t say this yet</h4>
-      <ul class="gap"><li>Two approvals for one path. Landing rules cover branches, so the nearest is the rule above.</li></ul>
-    </div>
+    <p class="pane-gap">temper can’t say this yet: two approvals for one path. Landing rules cover branches, so it says so and offers the nearest setting.</p>
     <ol class="stops" aria-label="The path">
       <li data-k="a">produce</li>
       <li data-k="c">check</li>
@@ -188,13 +173,6 @@ http://127.0.0.1:8367/…</span></code></pre>
   <div class="pane on" id="stock" role="tabpanel" aria-labelledby="tab-stock">
     <h3 class="pane-name">Stock</h3>
     <div><p class="say-by">you say</p><blockquote class="say">“Nothing yet. What do you do by default?”</blockquote></div>
-    <div class="proposal">
-      <p class="proposal-head"><span>temper’s defaults</span></p>
-      <h4>temper enforces</h4>
-      <ul><li>Every branch: CI passed, up to date, an agent’s review</li><li>A weekly spend for each project</li></ul>
-      <h4>your agents follow</h4>
-      <ul><li>Your repository’s AGENTS.md</li></ul>
-    </div>
     <ol class="stops" aria-label="The path">
       <li data-k="a">produce</li>
       <li data-k="c">check</li>
@@ -208,13 +186,6 @@ http://127.0.0.1:8367/…</span></code></pre>
   <div class="pane" id="self" role="tabpanel" aria-labelledby="tab-self">
     <h3 class="pane-name">As fabrig builds itself</h3>
     <div><p class="say-by">you say</p><blockquote class="say">“A person writes a design draft. One goal per draft, on its own branch. Designers first, then coding agents. It lands on main whole.”</blockquote></div>
-    <div class="proposal">
-      <p class="proposal-head"><span>temper proposes</span><span>illustrative</span></p>
-      <h4>temper enforces</h4>
-      <ul><li>Goal template: a coordinator, on a branch of its own</li><li>Goal branches: no CI, one merge at a time</li><li>main: CI passed, up to date</li><li>A model per role, the strongest where judgement is dense</li></ul>
-      <h4>your agents follow</h4>
-      <ul><li>Design lives beside the code</li><li>Push early, finish with a list of what’s left</li></ul>
-    </div>
     <ol class="stops" aria-label="The path">
       <li data-k="p">draft</li>
       <li data-k="a">plan</li>
@@ -226,30 +197,30 @@ http://127.0.0.1:8367/…</span></code></pre>
     </ol>
   </div>
 
-  <div class="line-head">
-    <h3 class="line-title">The path is yours. <span class="whole">The line isn’t.</span></h3>
-    <p class="legend"><span><i class="a"></i>A model</span><span><i class="p"></i>A person</span><span><i></i>Code</span></p>
-  </div>
-  <p class="line-sub">Who is woken and what a person signs off are settings. A merge tool is never an agent’s.</p>
-
   <svg class="rail" viewBox="0 0 1040 168" role="img" aria-label="The chosen path, crossing above the authority line wherever a model or a person is needed.">
     <defs>
-      <clipPath id="above"><rect x="-12" y="-12" width="1064" height="92"/></clipPath>
-      <clipPath id="below"><rect x="-12" y="80" width="1064" height="100"/></clipPath>
+      <clipPath id="above"><rect id="clip-up" x="-12" y="-12" width="1064" height="92"/></clipPath>
+      <clipPath id="below"><rect id="clip-down" x="-12" y="80" width="1064" height="100"/></clipPath>
     </defs>
-    <line class="auth" x1="0" y1="80" x2="1040" y2="80"/>
+    <line id="auth" class="auth" x1="0" y1="80" x2="1040" y2="80"/>
     <line id="base" class="base" x1="112" y1="134" x2="1034" y2="134"/>
     <path id="track" class="road" clip-path="url(#below)"/>
     <path class="road up" clip-path="url(#above)"/>
     <path class="trail" clip-path="url(#below)"/>
     <path class="trail up" clip-path="url(#above)"/>
     <g id="marks"></g>
-    <text class="judge" x="1040" y="30" text-anchor="end">judgement · a model or a person</text>
-    <text x="1040" y="72" text-anchor="end">authority: no merge or update tool above this line</text>
-    <text x="1026" y="122" text-anchor="end">main</text>
-    <text x="1040" y="160" text-anchor="end">mechanics · code</text>
+    <text id="t-judge" class="judge" x="1040" y="30" text-anchor="end">judgement · a model or a person</text>
+    <text id="t-auth" x="1040" y="72" text-anchor="end">authority: no merge or update tool above this line</text>
+    <text id="t-main" x="1026" y="122" text-anchor="end">main</text>
+    <text id="t-code" x="1040" y="160" text-anchor="end">mechanics · code</text>
     <circle id="dot" class="held" r="6" cx="8" cy="26"/>
   </svg>
+
+  <div class="line-head">
+    <h3 class="line-title">The path is yours. <span class="whole">The line isn’t.</span></h3>
+    <p class="legend"><span><i class="a"></i>A model</span><span><i class="p"></i>A person</span><span><i></i>Code</span></p>
+  </div>
+  <p class="line-sub">Who is woken and what a person signs off are settings. A merge tool is never an agent’s.</p>
 
 </section>
 
@@ -313,83 +284,122 @@ http://127.0.0.1:8367/…</span></code></pre>
   });
   wave.addEventListener('pointerleave', function () { readout.textContent = ''; });
 
-  // A way's path on the rail: up where a model or a person is needed, down
-  // to code. It travels fast on code and holds where someone is woken.
-  var UP = 26, DOWN = 134, FIRST = 8, LAST = 840, END = 1034;
+  // A way's path on the rail: across the page on a laptop, down it on a phone.
+  // It goes to judgement's side of the line where a model or a person is
+  // needed and back to code, fast on code and held where someone is woken.
   var NS = 'http://www.w3.org/2000/svg';
   var rail = document.querySelector('.rail');
   var track = document.getElementById('track');
   var base = document.getElementById('base');
+  var auth = document.getElementById('auth');
   var marks = document.getElementById('marks');
   var dot = document.getElementById('dot');
   var roads = rail.querySelectorAll(':scope > path');
   var trails = rail.querySelectorAll('.trail');
   var wide = matchMedia('(min-width: 861px)');
   var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var length = 0, stops = [], holds = [], shown = [], current = null;
+  var g = null, length = 0, stops = [], holds = [], shown = [], current = null;
   var at = 0, moving = false, since = null, frame = null, speed = 0.34;
 
   function make(name, attrs, text) {
     var n = document.createElementNS(NS, name);
-    Object.keys(attrs).forEach(function (k) { n.setAttribute(k, attrs[k]); });
+    set(n, attrs);
     if (text) n.textContent = text;
     return n;
   }
-  function mark(kind, x, y) {
-    var g = make('g', { 'class': 'st', transform: 'translate(' + x + ' ' + y + ')' });
-    if (kind === 'a') g.appendChild(make('use', { href: '#s', x: -11, y: -11, width: 22, height: 22 }));
-    else if (kind === 'p') g.appendChild(make('circle', { r: 8 }));
-    else if (kind === 'c') g.appendChild(make('rect', { x: -6, y: -6, width: 12, height: 12, rx: 2 }));
-    else g.appendChild(make('rect', { x: -4, y: -10, width: 4, height: 20, rx: 1 }));
-    return g;
+  function set(n, attrs) {
+    Object.keys(attrs).forEach(function (k) { n.setAttribute(k, attrs[k]); });
+  }
+  // Along the path and across the line, as x and y.
+  function point(along, across) { return wide.matches ? [along, across] : [across, along]; }
+  function xy(along, across) { return point(along, across).join(' '); }
+  function mark(kind, along, across) {
+    var p = point(along, across);
+    var m = make('g', { 'class': 'st', transform: 'translate(' + p[0] + ' ' + p[1] + ')' });
+    if (kind === 'a') m.appendChild(make('use', { href: '#s', x: -11, y: -11, width: 22, height: 22 }));
+    else if (kind === 'p') m.appendChild(make('circle', { r: 8 }));
+    else if (kind === 'c') m.appendChild(make('rect', { x: -6, y: -6, width: 12, height: 12, rx: 2 }));
+    else if (wide.matches) m.appendChild(make('rect', { x: -4, y: -10, width: 4, height: 20, rx: 1 }));
+    else m.appendChild(make('rect', { x: -10, y: -4, width: 20, height: 4, rx: 1 }));
+    return m;
   }
   function pathOf(s) {
-    var d = 'M' + s[0].x + ' ' + s[0].y;
+    var d = 'M' + xy(s[0].a, s[0].c);
     for (var i = 0; i < s.length - 1; i += 1) {
-      var a = s[i], b = s[i + 1], m = (a.x + b.x) / 2, c;
-      if (a.y === UP) { c = (a.x + m) / 2; d += 'C' + c + ' ' + UP + ' ' + c + ' ' + DOWN + ' ' + m + ' ' + DOWN; }
-      else d += 'L' + m + ' ' + DOWN;
-      if (b.y === UP) { c = (m + b.x) / 2; d += 'C' + c + ' ' + DOWN + ' ' + c + ' ' + UP + ' ' + b.x + ' ' + UP; }
-      else d += 'L' + b.x + ' ' + DOWN;
+      var p = s[i], q = s[i + 1], m = (p.a + q.a) / 2, c;
+      if (p.c === g.up) { c = (p.a + m) / 2; d += 'C' + xy(c, g.up) + ' ' + xy(c, g.down) + ' ' + xy(m, g.down); }
+      else d += 'L' + xy(m, g.down);
+      if (q.c === g.up) { c = (m + q.a) / 2; d += 'C' + xy(c, g.down) + ' ' + xy(c, g.up) + ' ' + xy(q.a, g.up); }
+      else d += 'L' + xy(q.a, g.down);
     }
-    return d + 'L' + END + ' ' + DOWN;
+    return d + 'L' + xy(g.end, g.down);
   }
   function place(s) {
     var p = track.getPointAtLength(s);
     dot.setAttribute('cx', p.x); dot.setAttribute('cy', p.y);
-    dot.classList.toggle('up', p.y < 80);
+    dot.classList.toggle('up', (wide.matches ? p.y : p.x) < g.line);
     trails.forEach(function (t) { t.style.strokeDashoffset = length - s; });
+  }
+  function label(id, attrs, text) {
+    var t = document.getElementById(id);
+    set(t, attrs);
+    t.textContent = text;
   }
   function draw(pane) {
     current = pane;
-    if (!wide.matches) return;
-    var lis = pane.querySelectorAll('.stops li'), step = (LAST - FIRST) / (lis.length - 1);
+    var lis = pane.querySelectorAll('.stops li'), n = lis.length, W = wide.matches;
+    g = W ? { up: 26, down: 134, line: 80, first: 8, last: 840, end: 1034, w: 1040, h: 168 }
+      : { up: 104, down: 198, line: 151, first: 40, last: 40 + (n - 1) * 58, end: 40 + (n - 1) * 58 + 44, w: 340, h: 40 + (n - 1) * 58 + 74 };
+    var step = (g.last - g.first) / (n - 1);
     var s = Array.prototype.map.call(lis, function (li, i) {
       var kind = li.dataset.k;
-      return { kind: kind, name: li.textContent, x: FIRST + i * step, y: kind === 'c' ? DOWN : UP };
+      return { kind: kind, name: li.textContent, a: g.first + i * step, c: kind === 'c' ? g.down : g.up };
     });
+    rail.setAttribute('viewBox', '0 0 ' + g.w + ' ' + g.h);
     var d = pathOf(s);
     roads.forEach(function (r) { r.setAttribute('d', d); });
-    base.setAttribute('x1', (s[0].x + s[1].x) / 2);
+    if (W) {
+      set(document.getElementById('clip-up'), { x: -12, y: -12, width: 1064, height: 92 });
+      set(document.getElementById('clip-down'), { x: -12, y: 80, width: 1064, height: 100 });
+      set(auth, { x1: 0, y1: 80, x2: 1040, y2: 80 });
+      label('t-judge', { x: 1040, y: 30, 'text-anchor': 'end' }, 'judgement · a model or a person');
+      label('t-auth', { x: 1040, y: 72, 'text-anchor': 'end' }, 'authority: no merge or update tool above this line');
+      label('t-main', { x: 1026, y: 122, 'text-anchor': 'end' }, 'main');
+      label('t-code', { x: 1040, y: 160, 'text-anchor': 'end' }, 'mechanics · code');
+    } else {
+      set(document.getElementById('clip-up'), { x: -12, y: -12, width: g.line + 12, height: g.h + 24 });
+      set(document.getElementById('clip-down'), { x: g.line, y: -12, width: g.w - g.line + 12, height: g.h + 24 });
+      set(auth, { x1: g.line, y1: 22, x2: g.line, y2: g.end + 8 });
+      label('t-judge', { x: g.up, y: 12, 'text-anchor': 'middle' }, 'judgement');
+      label('t-auth', { x: g.line, y: g.h - 2, 'text-anchor': 'middle' }, 'no merge or update tool left of this line');
+      label('t-main', { x: g.down + 18, y: g.end + 4, 'text-anchor': 'start' }, 'main');
+      label('t-code', { x: g.down, y: 12, 'text-anchor': 'middle' }, 'code');
+    }
+    var b0 = point((s[0].a + s[1].a) / 2, g.down), b1 = point(g.end, g.down);
+    set(base, { x1: b0[0], y1: b0[1], x2: b1[0], y2: b1[1] });
     marks.textContent = '';
     s.forEach(function (o, i) {
-      marks.appendChild(mark(o.kind, o.x, o.y));
-      marks.appendChild(make('text', { 'class': 'stn', x: i ? o.x : 0, y: o.y === UP ? 6 : 160, 'text-anchor': i ? 'middle' : 'start' }, o.name));
+      marks.appendChild(mark(o.kind, o.a, o.c));
+      var attrs;
+      if (W) attrs = { x: i ? o.a : 0, y: o.c === g.up ? 6 : 160, 'text-anchor': i ? 'middle' : 'start' };
+      else attrs = o.c === g.up ? { x: g.up - 18, y: o.a + 4, 'text-anchor': 'end' } : { x: g.down + 16, y: o.a + 4, 'text-anchor': 'start' };
+      attrs['class'] = 'stn';
+      marks.appendChild(make('text', attrs, o.name));
     });
-    marks.appendChild(mark('end', END, DOWN));
-    rail.setAttribute('aria-label', 'The path: ' + s.map(function (o) { return o.name; }).join(', then ') + '. Above the authority line wherever a model or a person is needed.');
+    marks.appendChild(mark('end', g.end, g.down));
+    rail.setAttribute('aria-label', 'The path: ' + s.map(function (o) { return o.name; }).join(', then ') + '. Over the authority line wherever a model or a person is needed.');
     length = track.getTotalLength();
     trails.forEach(function (t) { t.style.strokeDasharray = length; t.style.strokeDashoffset = length; });
     shown = marks.querySelectorAll('.st');
-    stops = s.concat({ x: END, y: DOWN }).map(function (o) {
-      var best = 0, least = Infinity;
+    stops = s.concat({ a: g.end, c: g.down }).map(function (o) {
+      var best = 0, least = Infinity, t = point(o.a, o.c);
       for (var l = 0; l <= length; l += 2) {
-        var p = track.getPointAtLength(l), e = (p.x - o.x) * (p.x - o.x) + (p.y - o.y) * (p.y - o.y);
+        var p = track.getPointAtLength(l), e = (p.x - t[0]) * (p.x - t[0]) + (p.y - t[1]) * (p.y - t[1]);
         if (e < least) { least = e; best = l; }
       }
       return best;
     });
-    holds = s.map(function (o) { return o.y === UP ? 1500 : 900; }).concat(1800);
+    holds = s.map(function (o) { return o.c === g.up ? 1500 : 900; }).concat(1800);
     at = 0; moving = false; since = null;
     dot.classList.add('held');
     place(still ? length : 0);
