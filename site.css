@@ -38,6 +38,16 @@ code { font-family: var(--mono); font-size: .92em; }
 .whole { display: inline-block; }
 .mono { font-family: var(--mono); }
 .primary-nav__link[aria-current] { color: #fff; }
+.primary-nav__item--source, .menu-button { display: none; }
+.menu-button { flex: none; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--color-chip-border); border-radius: 50%; background: none; cursor: pointer; }
+.menu-button[aria-expanded="true"] { background: var(--surface); }
+/* The jump lands past the section's padding, with the label near the top. On a
+   short window it goes further still, so that the whole timeline is in view:
+   463px is the label to the rail, and the rail is 14.48vw tall, to 242px. */
+#ways { scroll-margin-top: calc(-88px - max(0px, 463px + min(14.48vw, 242px) - 100vh)); }
+#ways .sub { max-width: 860px; }
+.button--outline.button--large { gap: calc(11.5 * var(--px)); padding: 0 calc(30 * var(--px)); }
+.button--outline.button--large .button__icon { width: max(14px, calc(16 * var(--px))); }
 
 /* The hero's copy runs longer than the comp's: the stage hangs from the hero's
    bottom edge, so the floor still meets the feature strip. */
@@ -225,6 +235,7 @@ footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
 
 @media (max-width: 860px) {
   :root { --gutter-start: 16px; --gutter-end: 16px; }
+  #ways { scroll-margin-top: -64px; }
   body { font-family: var(--font-text); background-image: radial-gradient(ellipse 62vw 800px at 100% 320px, #07043a 0, transparent 72%); }
 
   .site-header__inner { flex-wrap: wrap; row-gap: 2px; padding-top: 12px; padding-bottom: 6px; }
@@ -234,9 +245,15 @@ footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
   .primary-nav { order: 3; width: 100%; margin-left: 0; padding-top: 0; overflow: visible; }
   .primary-nav__list { flex-wrap: wrap; gap: 4px clamp(10px, 3.4vw, 20px); padding: 8px 0; }
   .primary-nav__link { font-size: clamp(14px, 3.8vw, 15px); }
-  .site-header__actions { gap: 14px; }
-  .site-header__actions .icon-link { display: block; }
-  .icon-link img { width: 28px; height: 28px; }
+  .primary-nav__item--source { display: block; }
+  .js .menu-button { display: inline-flex; }
+  .js .primary-nav { display: none; }
+  .js .primary-nav.open { position: absolute; z-index: 5; top: calc(100% + 6px); right: 16px; display: block; width: auto; min-width: 210px; padding: 8px; border: 1px solid var(--line-2); border-radius: 14px; background: var(--surface); box-shadow: 0 14px 36px rgba(0, 0, 0, .5); }
+  .js .primary-nav__list { display: block; padding: 0; }
+  .js .primary-nav__link { display: flex; padding: 12px; border-radius: 8px; font-size: 16px; }
+  .js .primary-nav__link[aria-current] { background: rgba(255, 255, 255, .06); }
+  .site-header__actions { gap: 10px; }
+  .site-header__actions .icon-link { display: none; }
   .site-header__actions .button--small { height: 40px; padding: 0 14px 0 16px; font-size: 14px; }
 
   .home { display: flex; flex-direction: column; }
@@ -249,11 +266,11 @@ footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
   .hero__title { margin-top: 16px; font-size: clamp(32px, 8.9vw, 52px); line-height: 1.04; letter-spacing: -.022em; }
   .hero__line, .hero__line:nth-child(n) { letter-spacing: inherit; }
   .hero__lede { max-width: 34em; margin-top: 18px; font-size: 17px; line-height: 1.38; letter-spacing: 0; color: var(--muted); }
-  .hero__actions { flex-direction: row; align-items: center; gap: 16px; margin: 26px 0 0; }
+  .hero__actions { flex-direction: row; align-items: center; gap: 10px; margin: 26px 0 0; }
   .button--large, .button--outline.button--large { height: 52px; font-size: 15px; }
-  .button--primary.button--large, .button--outline.button--large { padding: 0 24px; gap: 10px; letter-spacing: 0; }
+  .button--primary.button--large, .button--outline.button--large { padding: 0 18px; gap: 8px; letter-spacing: 0; }
   .button--primary.button--large .button__icon { width: 14px; }
-  .button--outline.button--large .button__icon { width: 20px; }
+  .button--outline.button--large .button__icon { width: 13px; }
   .hero__visual { width: min(460px, 100%); margin: 8px auto 0; padding: 0; }
   .hero__visual::before, .hero__reflection { display: none; }
   .hero__mark { -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent); }
@@ -279,6 +296,10 @@ footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
   .thesis { grid-template-columns: 1fr; }
   .thesis p:not(.n) { grid-column: 1; }
   footer { margin-top: 80px; }
+}
+@media (max-width: 380px) {
+  .hero__actions { gap: 8px; }
+  .button--primary.button--large, .button--outline.button--large { padding: 0 14px; font-size: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

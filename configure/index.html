@@ -13,6 +13,7 @@
 <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="stylesheet" href="/site.css">
+<script>document.documentElement.className = 'js';</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -23,17 +24,19 @@
       <img class="brand__mark" src="/assets/fabrig-logo.svg" width="87" height="78" alt="">
       <span class="brand__name">fabrig</span>
     </a>
-    <nav class="primary-nav" aria-label="Primary">
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
       <ul class="primary-nav__list">
         <li class="primary-nav__item"><a class="primary-nav__link" href="/how-it-works/">How it works</a></li>
         <li class="primary-nav__item"><a class="primary-nav__link" href="/configure/" aria-current="page">Configure</a></li>
         <li class="primary-nav__item"><a class="primary-nav__link" href="/questions/">Questions</a></li>
         <li class="primary-nav__item"><a class="primary-nav__link" href="/manifesto/">Manifesto</a></li>
+        <li class="primary-nav__item primary-nav__item--source"><a class="primary-nav__link" href="https://github.com/fabrig-ai/fabrig">Source</a></li>
       </ul>
     </nav>
     <div class="site-header__actions">
       <a class="icon-link" href="https://github.com/fabrig-ai/fabrig" aria-label="Source on GitHub"><img src="/assets/icons/github.svg" width="34" height="34" alt=""></a>
       <a class="button button--primary button--small" href="/#start">Get started <img class="button__icon" src="/assets/icons/arrow-right-small.svg" width="14" height="12" alt=""></a>
+      <button class="menu-button" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><img src="/assets/icons/menu.svg" width="22" height="16" alt=""></button>
     </div>
   </div>
 </header>
@@ -150,5 +153,6 @@
   </div>
 </footer>
 </div>
+<script src="/site.js" defer></script>
 </body>
 </html>
