@@ -41,6 +41,10 @@ code { font-family: var(--mono); font-size: .92em; }
 .primary-nav__item--source, .menu-button { display: none; }
 .menu-button { flex: none; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--color-chip-border); border-radius: 50%; background: none; cursor: pointer; }
 .menu-button[aria-expanded="true"] { background: var(--surface); }
+/* A bare header, the home page's for now: no page links and no menu, the
+   source as its icon at every width. */
+.site-header--bare .primary-nav, .js .site-header--bare .menu-button { display: none; }
+.site-header--bare .site-header__actions .icon-link { display: block; }
 /* The jump lands past the section's padding, with the label near the top. On a
    short window it goes further still, so that the whole timeline is in view:
    463px is the label to the rail, and the rail is 14.48vw tall, to 242px. */
@@ -57,6 +61,14 @@ code { font-family: var(--mono); font-size: .92em; }
 .hero__line { white-space: normal; }
 .hero__lede { max-width: calc(820 * var(--px)); }
 .hero__lede strong { font-weight: 600; color: var(--color-text); }
+/* In-page jumps point down; a right arrow would mean another page. */
+.button--small .button__icon--down { width: 11px; }
+.button--primary.button--large .button__icon--down { width: max(13px, calc(16 * var(--px))); }
+.jumps { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 26px; margin-top: calc(34 * var(--px)); font-size: max(14.5px, calc(17 * var(--px))); color: var(--ink-2); }
+.jumps__label { color: var(--muted); }
+.jumps a { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; }
+.jumps a::after { content: ''; flex: none; width: .62em; height: .68em; background: currentColor; -webkit-mask: url(/assets/icons/arrow-down.svg) center / contain no-repeat; mask: url(/assets/icons/arrow-down.svg) center / contain no-repeat; }
+.jumps a:hover { color: var(--ink); }
 .hero__copy { padding-bottom: calc(44 * var(--px)); }
 .hero__visual { --v: calc(.98 * var(--px)); }
 @media (min-width: 1101px) {
@@ -267,6 +279,7 @@ footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
   .hero__line, .hero__line:nth-child(n) { letter-spacing: inherit; }
   .hero__lede { max-width: 34em; margin-top: 18px; font-size: 17px; line-height: 1.38; letter-spacing: 0; color: var(--muted); }
   .hero__actions { flex-direction: row; align-items: center; gap: 10px; margin: 26px 0 0; }
+  .jumps { gap: 4px 18px; margin-top: 22px; font-size: 15px; }
   .button--large, .button--outline.button--large { height: 52px; font-size: 15px; }
   .button--primary.button--large, .button--outline.button--large { padding: 0 18px; gap: 8px; letter-spacing: 0; }
   .button--primary.button--large .button__icon { width: 14px; }
@@ -298,6 +311,7 @@ footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
   footer { margin-top: 80px; }
 }
 @media (max-width: 380px) {
+  .site-header--bare .site-header__actions .icon-link { display: none; }
   .hero__actions { gap: 8px; }
   .button--primary.button--large, .button--outline.button--large { padding: 0 14px; font-size: 14px; }
 }
