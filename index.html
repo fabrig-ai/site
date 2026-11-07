@@ -156,6 +156,7 @@ http://127.0.0.1:8367/…</span></code></pre>
     <h3 class="pane-name">Pair</h3>
     <div><p class="say-by">you tell temper</p><blockquote class="say">“I stay in the loop. An agent makes the change, and nothing reaches main until I’ve approved it.”</blockquote></div>
     <ol class="stops" aria-label="The path">
+      <li data-k="p">you ask</li>
       <li data-k="a">produce</li>
       <li data-k="c">check</li>
       <li data-k="a">repair</li>
@@ -169,6 +170,7 @@ http://127.0.0.1:8367/…</span></code></pre>
     <div><p class="say-by">you tell temper</p><blockquote class="say">“Agents review everything, then one of us signs off. Anything under payments/ needs two of us.”</blockquote></div>
     <p class="pane-gap">temper can’t say this yet: two approvals for one path. Landing rules cover branches, so it says so and offers the nearest setting.</p>
     <ol class="stops" aria-label="The path">
+      <li data-k="p">you ask</li>
       <li data-k="a">produce</li>
       <li data-k="c">check</li>
       <li data-k="a">review</li>
@@ -182,6 +184,7 @@ http://127.0.0.1:8367/…</span></code></pre>
     <h3 class="pane-name">Stock</h3>
     <div><p class="say-by">you tell temper</p><blockquote class="say">“Nothing yet. What do you do by default?”</blockquote></div>
     <ol class="stops" aria-label="The path">
+      <li data-k="p">you ask</li>
       <li data-k="a">produce</li>
       <li data-k="c">check</li>
       <li data-k="a">review</li>
@@ -221,6 +224,7 @@ http://127.0.0.1:8367/…</span></code></pre>
     <text id="t-auth" x="1040" y="72" text-anchor="end">authority: no merge or update tool above this line</text>
     <text id="t-main" x="1026" y="122" text-anchor="end">main</text>
     <text id="t-code" x="1040" y="160" text-anchor="end">mechanics · code</text>
+    <g id="key" class="key"></g>
     <circle id="dot" class="held" r="6" cx="8" cy="26"/>
   </svg>
 
@@ -302,6 +306,7 @@ http://127.0.0.1:8367/…</span></code></pre>
   var auth = document.getElementById('auth');
   var marks = document.getElementById('marks');
   var dot = document.getElementById('dot');
+  var key = document.getElementById('key');
   var roads = rail.querySelectorAll(':scope > path');
   var trails = rail.querySelectorAll('.trail');
   var wide = matchMedia('(min-width: 861px)');
@@ -353,6 +358,22 @@ http://127.0.0.1:8367/…</span></code></pre>
     set(t, attrs);
     t.textContent = text;
   }
+  // The key, wide, on the code line at its left. Every path starts with a
+  // person, so the first code station's label is clear of it.
+  function legend() {
+    key.textContent = '';
+    var x = 0;
+    [['a', 'a model'], ['p', 'a person'], ['c', 'code']].forEach(function (k) {
+      var m = make('g', { 'class': 'st', transform: 'translate(' + (x + 5) + ' 156) scale(.5)' });
+      if (k[0] === 'a') m.appendChild(make('use', { href: '#s', x: -11, y: -11, width: 22, height: 22 }));
+      else if (k[0] === 'p') m.appendChild(make('circle', { r: 8 }));
+      else m.appendChild(make('rect', { x: -6, y: -6, width: 12, height: 12, rx: 2 }));
+      key.appendChild(m);
+      var t = make('text', { x: x + 15, y: 160 }, k[1]);
+      key.appendChild(t);
+      x += 15 + t.getComputedTextLength() + 14;
+    });
+  }
   function draw(pane) {
     current = pane;
     var lis = pane.querySelectorAll('.stops li'), n = lis.length, W = wide.matches;
@@ -374,7 +395,9 @@ http://127.0.0.1:8367/…</span></code></pre>
       label('t-auth', { x: 1040, y: 72, 'text-anchor': 'end' }, 'authority: no merge or update tool above this line');
       label('t-main', { x: 1026, y: 122, 'text-anchor': 'end' }, 'main');
       label('t-code', { x: 1040, y: 160, 'text-anchor': 'end' }, 'mechanics · code');
+      legend();
     } else {
+      key.textContent = '';
       set(document.getElementById('clip-up'), { x: -12, y: -12, width: g.line + 12, height: g.h + 24 });
       set(document.getElementById('clip-down'), { x: g.line, y: -12, width: g.w - g.line + 12, height: g.h + 24 });
       set(auth, { x1: g.line, y1: 22, x2: g.line, y2: g.end + 8 });
