@@ -148,7 +148,7 @@ http://127.0.0.1:8367/…</span></code></pre>
     <button type="button" role="tab" id="tab-pair" aria-controls="pair" aria-selected="false" tabindex="-1">Pair</button>
     <button type="button" role="tab" id="tab-team" aria-controls="team" aria-selected="false" tabindex="-1">Team</button>
     <button type="button" role="tab" id="tab-stock" aria-controls="stock" aria-selected="true">Stock</button>
-    <button type="button" role="tab" id="tab-self" aria-controls="self" aria-selected="false" tabindex="-1">As fabrig builds itself</button>
+    <button type="button" role="tab" id="tab-self" aria-controls="self" aria-selected="false" tabindex="-1">At scale</button>
   </div>
   <div class="dial-ends"><span aria-hidden="true">more of you</span><span class="dial-note">Four examples, not modes. Anything in between is just settings.</span><span aria-hidden="true">more of your agents</span></div>
 
@@ -177,6 +177,7 @@ http://127.0.0.1:8367/…</span></code></pre>
       <li data-k="c">check</li>
       <li data-k="a">review</li>
       <li data-k="a">repair</li>
+      <li data-k="c">check</li>
       <li data-k="p">one of you</li>
       <li data-k="c">exact-commit merge</li>
     </ol>
@@ -191,42 +192,47 @@ http://127.0.0.1:8367/…</span></code></pre>
       <li data-k="c">check</li>
       <li data-k="a">review</li>
       <li data-k="a">repair</li>
+      <li data-k="c">check</li>
+      <li data-k="c">merge conflict</li>
       <li data-k="a">resolve</li>
       <li data-k="c">exact-commit merge</li>
     </ol>
   </div>
 
   <div class="pane" id="self" role="tabpanel" aria-labelledby="tab-self">
-    <h3 class="pane-name">As fabrig builds itself</h3>
-    <div><p class="say-by">you tell temper</p><blockquote class="say">“A person writes a design draft. One goal per draft, on its own branch. Designers first, then coding agents. It lands on main whole.”</blockquote></div>
+    <h3 class="pane-name">At scale</h3>
+    <div><p class="say-by">you tell temper</p><blockquote class="say">“A person pairs with an agent and a design draft is produced. The draft is executed, on its own branch. Designers first, then coding agents. It lands on main whole.”</blockquote></div>
     <ol class="stops" aria-label="The path">
       <li data-k="p">draft</li>
       <li data-k="a">plan</li>
       <li data-k="a">produce</li>
       <li data-k="c">check</li>
       <li data-k="a">repair</li>
+      <li data-k="c">check</li>
+      <li data-k="c">merge conflict</li>
+      <li data-k="a">resolve</li>
       <li data-k="c">exact-commit merge</li>
       <li data-k="c">verify</li>
     </ol>
   </div>
   </div>
 
-  <svg class="rail" viewBox="0 0 1040 168" role="img" aria-label="The chosen path, crossing above the authority line wherever a model or a person is needed.">
+  <svg class="rail" viewBox="0 0 1100 168" role="img" aria-label="The chosen path, crossing above the authority line wherever a model or a person is needed.">
     <defs>
-      <clipPath id="above"><rect id="clip-up" x="-12" y="-12" width="1064" height="92"/></clipPath>
-      <clipPath id="below"><rect id="clip-down" x="-12" y="80" width="1064" height="100"/></clipPath>
+      <clipPath id="above"><rect id="clip-up" x="-12" y="-12" width="1124" height="92"/></clipPath>
+      <clipPath id="below"><rect id="clip-down" x="-12" y="80" width="1124" height="100"/></clipPath>
     </defs>
-    <line id="auth" class="auth" x1="0" y1="80" x2="1040" y2="80"/>
-    <line id="base" class="base" x1="112" y1="134" x2="1034" y2="134"/>
+    <line id="auth" class="auth" x1="0" y1="80" x2="1100" y2="80"/>
+    <line id="base" class="base" x1="112" y1="134" x2="1094" y2="134"/>
     <path id="track" class="road" clip-path="url(#below)"/>
     <path class="road up" clip-path="url(#above)"/>
     <path class="trail" clip-path="url(#below)"/>
     <path class="trail up" clip-path="url(#above)"/>
     <g id="marks"></g>
-    <text id="t-judge" class="judge" x="1040" y="30" text-anchor="end">judgement · a model or a person</text>
-    <text id="t-auth" x="1040" y="72" text-anchor="end">authority: no merge tool above this line</text>
-    <text id="t-main" x="1026" y="122" text-anchor="end">main</text>
-    <text id="t-code" x="1040" y="160" text-anchor="end">mechanics · code</text>
+    <text id="t-judge" class="judge" x="1100" y="30" text-anchor="end">judgement · a model or a person</text>
+    <text id="t-auth" x="1100" y="72" text-anchor="end">authority: no merge tool above this line</text>
+    <text id="t-main" x="1086" y="122" text-anchor="end">main</text>
+    <text id="t-code" x="1100" y="160" text-anchor="end">mechanics · code</text>
     <g id="key" class="key"></g>
     <circle id="dot" class="held" r="6" cx="8" cy="26"/>
   </svg>
@@ -366,7 +372,7 @@ http://127.0.0.1:8367/…</span></code></pre>
   function legend() {
     key.textContent = '';
     var x = 0;
-    [['a', 'a model'], ['p', 'a person'], ['c', 'code']].forEach(function (k) {
+    [['a', 'model'], ['p', 'person'], ['c', 'code']].forEach(function (k) {
       var m = make('g', { 'class': 'st', transform: 'translate(' + (x + 5) + ' 156) scale(.5)' });
       if (k[0] === 'a') m.appendChild(make('use', { href: '#s', x: -11, y: -11, width: 22, height: 22 }));
       else if (k[0] === 'p') m.appendChild(make('circle', { r: 8 }));
@@ -377,10 +383,21 @@ http://127.0.0.1:8367/…</span></code></pre>
       x += 15 + t.getComputedTextLength() + 14;
     });
   }
+  // The track only moves on along its length, so a station's distance on it
+  // is found by halving: a few calls each, where sampling it whole took
+  // thousands and made a change of tab slow.
+  function lengthAt(along) {
+    var lo = 0, hi = length;
+    for (var k = 0; k < 16; k += 1) {
+      var mid = (lo + hi) / 2, p = track.getPointAtLength(mid);
+      if ((wide.matches ? p.x : p.y) < along) lo = mid; else hi = mid;
+    }
+    return (lo + hi) / 2;
+  }
   function draw(pane) {
     current = pane;
     var lis = pane.querySelectorAll('.stops li'), n = lis.length, W = wide.matches;
-    g = W ? { up: 26, down: 134, line: 80, first: 8, last: 840, end: 1034, w: 1040, h: 168 }
+    g = W ? { up: 26, down: 134, line: 80, first: 8, last: 880, end: 1094, w: 1100, h: 168 }
       : { up: 104, down: 198, line: 151, first: 40, last: 40 + (n - 1) * 58, end: 40 + (n - 1) * 58 + 44, w: 340, h: 40 + (n - 1) * 58 + 74 };
     var step = (g.last - g.first) / (n - 1);
     var s = Array.prototype.map.call(lis, function (li, i) {
@@ -391,13 +408,13 @@ http://127.0.0.1:8367/…</span></code></pre>
     var d = pathOf(s);
     roads.forEach(function (r) { r.setAttribute('d', d); });
     if (W) {
-      set(document.getElementById('clip-up'), { x: -12, y: -12, width: 1064, height: 92 });
-      set(document.getElementById('clip-down'), { x: -12, y: 80, width: 1064, height: 100 });
-      set(auth, { x1: 0, y1: 80, x2: 1040, y2: 80 });
-      label('t-judge', { x: 1040, y: 30, 'text-anchor': 'end' }, 'judgement · a model or a person');
-      label('t-auth', { x: 1040, y: 72, 'text-anchor': 'end' }, 'authority: no merge tool above this line');
-      label('t-main', { x: 1026, y: 122, 'text-anchor': 'end' }, 'main');
-      label('t-code', { x: 1040, y: 160, 'text-anchor': 'end' }, 'mechanics · code');
+      set(document.getElementById('clip-up'), { x: -12, y: -12, width: 1124, height: 92 });
+      set(document.getElementById('clip-down'), { x: -12, y: 80, width: 1124, height: 100 });
+      set(auth, { x1: 0, y1: 80, x2: 1100, y2: 80 });
+      label('t-judge', { x: 1100, y: 30, 'text-anchor': 'end' }, 'judgement · a model or a person');
+      label('t-auth', { x: 1100, y: 72, 'text-anchor': 'end' }, 'authority: no merge tool above this line');
+      label('t-main', { x: 1086, y: 122, 'text-anchor': 'end' }, 'main');
+      label('t-code', { x: 1100, y: 160, 'text-anchor': 'end' }, 'mechanics · code');
       legend();
     } else {
       key.textContent = '';
@@ -425,14 +442,7 @@ http://127.0.0.1:8367/…</span></code></pre>
     length = track.getTotalLength();
     trails.forEach(function (t) { t.style.strokeDasharray = length; t.style.strokeDashoffset = length; });
     shown = marks.querySelectorAll('.st');
-    stops = s.concat({ a: g.end, c: g.down }).map(function (o) {
-      var best = 0, least = Infinity, t = point(o.a, o.c);
-      for (var l = 0; l <= length; l += 2) {
-        var p = track.getPointAtLength(l), e = (p.x - t[0]) * (p.x - t[0]) + (p.y - t[1]) * (p.y - t[1]);
-        if (e < least) { least = e; best = l; }
-      }
-      return best;
-    });
+    stops = s.concat({ a: g.end, c: g.down }).map(function (o) { return lengthAt(o.a); });
     holds = s.map(function (o) { return o.c === g.up ? 1500 : 900; }).concat(1800);
     at = 0; moving = false; since = null;
     dot.classList.add('held');

@@ -47,8 +47,8 @@ code { font-family: var(--mono); font-size: .92em; }
 .site-header--bare .site-header__actions .icon-link { display: block; }
 /* The jump lands past the section's padding, with the label near the top. On a
    short window it goes further still, so that the whole timeline is in view:
-   450px is the label to the rail at most, and the rail is 14.48vw tall, to 242px. */
-#ways { scroll-margin-top: calc(-88px - max(0px, 450px + min(14.48vw, 242px) - 100vh)); }
+   450px is the label to the rail at most, and the rail is 13.68vw tall, to 229px. */
+#ways { scroll-margin-top: calc(-88px - max(0px, 450px + min(13.68vw, 229px) - 100vh)); }
 #ways .sub { max-width: 860px; }
 .button--outline.button--large { gap: calc(11.5 * var(--px)); padding: 0 calc(30 * var(--px)); }
 .button--outline.button--large .button__icon { width: max(14px, calc(16 * var(--px))); }
@@ -150,6 +150,7 @@ html:not(.js) .dial, html:not(.js) .dial-ends { display: none; }
   .js .panes > .pane { grid-area: 1 / 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 20rem); gap: 0 48px; align-items: start; margin-top: 0; }
   .js .panes > .pane:not(.on) { visibility: hidden; }
   .js .pane-gap { grid-column: 2; grid-row: 1; margin-top: 27px; padding-left: 16px; border-left: 1px solid var(--line-2); }
+  .js .pane:not(:has(.pane-gap)) > div { grid-column: 1 / -1; }
 }
 
 .line-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; margin-top: 32px; }
