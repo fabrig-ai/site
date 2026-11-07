@@ -47,8 +47,8 @@ code { font-family: var(--mono); font-size: .92em; }
 .site-header--bare .site-header__actions .icon-link { display: block; }
 /* The jump lands past the section's padding, with the label near the top. On a
    short window it goes further still, so that the whole timeline is in view:
-   463px is the label to the rail, and the rail is 14.48vw tall, to 242px. */
-#ways { scroll-margin-top: calc(-88px - max(0px, 463px + min(14.48vw, 242px) - 100vh)); }
+   430px is the label to the rail, and the rail is 14.48vw tall, to 242px. */
+#ways { scroll-margin-top: calc(-88px - max(0px, 430px + min(14.48vw, 242px) - 100vh)); }
 #ways .sub { max-width: 860px; }
 .button--outline.button--large { gap: calc(11.5 * var(--px)); padding: 0 calc(30 * var(--px)); }
 .button--outline.button--large .button__icon { width: max(14px, calc(16 * var(--px))); }
